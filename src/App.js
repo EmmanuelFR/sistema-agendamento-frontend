@@ -12,10 +12,10 @@ function App() {
       <Routes>
       <Route path="/" element={<Navigate to="/Login" />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Agendamento" element={<Agendamento />} />
         <Route path="/RedefinirSenha" element={<RedefinirSenha />} />
         <Route path="/Menu" element={<Menu />} />
         <Route path="/MeuPerfil" element={<MeuPerfil />} />
+        <Route path="/Agendamento" element={<Agendamento />} />
       </Routes>
     </Router>
   );
