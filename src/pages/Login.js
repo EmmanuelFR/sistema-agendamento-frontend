@@ -8,7 +8,7 @@ function Login() {
       <img src="/images/images-removebg-preview.png" alt="Logo" />
       </div>
       <h1>Login</h1>
-      <form>
+      <form className="form-login">
         <div className="input-group">
           <label htmlFor="email">E-mail / RA</label>
           <input type="text" id="email" name="email" placeholder="Digite seu E-mail ou RA" />
@@ -31,4 +31,4 @@ function Login() {
   );
 }
 
-export default Login;   
+export default Login;

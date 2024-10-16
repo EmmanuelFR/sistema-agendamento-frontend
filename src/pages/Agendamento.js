@@ -142,17 +142,19 @@
 
 // export default Agendamento;
 
-import React, { useState } from "react";
+// 
+
+import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Agendamento.css';
-import { FaClock } from "react-icons/fa";
-import { FiMenu, FiLogOut } from "react-icons/fi";
-import logo from "../images/images-removebg-preview.png";
+import { FaClock } from 'react-icons/fa';
+import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
+
 
 const Agendamento = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [selectedTime, setSelectedTime] = useState("08:00");
+    const [selectedTime, setSelectedTime] = useState('08:00');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -160,20 +162,26 @@ const Agendamento = () => {
         const agendamentoDate = new Date(selectedDate);
         agendamentoDate.setHours(hours, minutes);
 
-        console.log("Data e Hora do Agendamento: ", agendamentoDate);
-        // Enviar para a API
+        // Envio da data/hora para a API
+        console.log("Data e Hora do Agendamento:", agendamentoDate);
     };
 
     return (
-        <div className="agendamento-container">
+        <div className="page-container">
             <header className="agendamento-header">
-                <FiMenu className="menu-icon" />
-                <img src={logo} alt="Logo" className="logo" />
-                <FiLogOut className="logout-icon" />
+                <div className="menu-icon">
+                    <AiOutlineMenu size={28} />
+                    <span>Menu</span>
+                </div>
+                <img className="logo" src="/images/images-removebg-preview.png" alt="Logo" />
+                <div className="logout-icon">
+                    <AiOutlineLogout size={28} />
+                    <span>Sair</span>
+                </div>
             </header>
-            <h2><i className="icon-calendario"></i>Agendamento de Avaliações</h2>
-            <p>Marque a data e o horário da sua avaliação abaixo:</p>
-            <form onSubmit={handleSubmit}>
+
+            <h2>Agendamento de Avaliações</h2>
+            <form onSubmit={handleSubmit} className="calendario">
                 <label>Disciplina:</label>
                 <select>
                     <option>Disciplina 1</option>

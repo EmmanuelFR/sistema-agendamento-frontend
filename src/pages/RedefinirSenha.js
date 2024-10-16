@@ -26,11 +26,6 @@ function RedefinirSenha() {
 
         <button type="submit" className="btn-alterar-senha">Alterar Senha</button>
       </form>
-
-      <div className="menu">
-        <button className="menu-btn">Menu</button>
-        <button className="sair-btn">Sair</button>
-      </div>
     </div>
   );
 }
