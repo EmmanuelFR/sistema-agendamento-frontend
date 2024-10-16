@@ -61,14 +61,20 @@
     right: 20px;
   } */
 
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #B0EACD, #FFFFFF);
+  }
+  
   .redefinir-senha-container {
+    min-height: 100vh; /* 100% da viewport height */
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #a0e4cc;
-    padding: 20px;
+    align-items: center;
+    background: linear-gradient(180deg, #B0EACD, #FFFFFF);
   }
   
   .login-logo img {

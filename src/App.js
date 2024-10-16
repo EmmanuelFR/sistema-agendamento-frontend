@@ -1,10 +1,12 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
-import { Navigate } from 'react-router-dom';
 import RedefinirSenha from './pages/RedefinirSenha';
 import Menu from './pages/Menu';
 import MeuPerfil from './pages/MeuPerfil';
 import Agendamento from './pages/Agendamento';
+import Reagendamento from './pages/Reagendamento';
+import Suporte from './pages/Suporte';
+import Logout from './pages/Logout';
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
         <Route path="/Menu" element={<Menu />} />
         <Route path="/MeuPerfil" element={<MeuPerfil />} />
         <Route path="/Agendamento" element={<Agendamento />} />
+        <Route path="/Reagendamento" element={<Reagendamento />} />
+        <Route path="/Suporte" element={<Suporte />} />
+        <Route path="/Logout" element={<Logout />} />
       </Routes>
     </Router>
   );
