@@ -150,11 +150,12 @@ import 'react-calendar/dist/Calendar.css';
 import './Agendamento.css';
 import { FaClock } from 'react-icons/fa';
 import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
-
+import axios from 'axios';  // Adicione esta linha
 
 const Agendamento = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedTime, setSelectedTime] = useState('08:00');
+    const [disciplina, setDisciplina] = useState('Disciplina 1'); // Adicione estado para a disciplina
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -162,8 +163,19 @@ const Agendamento = () => {
         const agendamentoDate = new Date(selectedDate);
         agendamentoDate.setHours(hours, minutes);
 
-        // Envio da data/hora para a API
-        console.log("Data e Hora do Agendamento:", agendamentoDate);
+        const agendamento = {
+            data: agendamentoDate,
+            disciplina: disciplina,
+        };
+
+        // Enviar os dados do agendamento para a API
+        axios.post('http://localhost:8080/api/agendamentos', agendamento) // Substitua pelo endpoint correto da API
+            .then(response => {
+                console.log('Agendamento criado com sucesso:', response.data);
+            })
+            .catch(error => {
+                console.error('Erro ao criar agendamento:', error);
+            });
     };
 
     return (
@@ -183,9 +195,9 @@ const Agendamento = () => {
             <h2>Agendamento de Avaliações</h2>
             <form onSubmit={handleSubmit} className="calendario">
                 <label>Disciplina:</label>
-                <select>
-                    <option>Disciplina 1</option>
-                    <option>Disciplina 2</option>
+                <select value={disciplina} onChange={(e) => setDisciplina(e.target.value)}>
+                    <option value="Disciplina 1">Disciplina 1</option>
+                    <option value="Disciplina 2">Disciplina 2</option>
                 </select>
 
                 <label>Selecione a Data:</label>

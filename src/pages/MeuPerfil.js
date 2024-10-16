@@ -31,11 +31,25 @@
 
 // export default MeuPerfil;
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MeuPerfil.css';
 import { FaUserCircle, FaCamera } from 'react-icons/fa';
+import axios from 'axios';
 
 const MeuPerfil = () => {
+  const [perfil, setPerfil] = useState({}); // Estado para armazenar os dados do perfil
+
+  // Função para buscar os dados do perfil do usuário
+  useEffect(() => {
+    axios.get('http://localhost:8080/api/perfil') // URL da sua API
+      .then(response => {
+        setPerfil(response.data); // Define os dados do perfil com a resposta da API
+      })
+      .catch(error => {
+        console.error('Erro ao buscar os dados do perfil:', error);
+      });
+  }, []);
+
   return (
     <div className="perfil-container">
       <div className="perfil-header">
@@ -47,14 +61,14 @@ const MeuPerfil = () => {
           <FaCamera className="foto-icon" />
           <FaUserCircle className="perfil-icon" />
         </div>
-        <input type="text" placeholder="Nome Completo" className="perfil-input" value="Nome Completo" readOnly />
-        <input type="email" placeholder="E-mail" className="perfil-input" value="email@exemplo.com" readOnly />
-        <input type="text" placeholder="Telefone" className="perfil-input" value="(99) 99999-9999" readOnly />
-        <input type="text" placeholder="RA" className="perfil-input" value="123456" readOnly />
-        <input type="text" placeholder="Curso" className="perfil-input" value="Engenharia de Software" readOnly />
-        <input type="text" placeholder="Período do Curso" className="perfil-input" value="6º Período" readOnly />
-        <input type="text" placeholder="Cidade" className="perfil-input" value="Cidade Exemplo" readOnly />
-        <input type="text" placeholder="Polo" className="perfil-input" value="Polo Exemplo" readOnly />
+        <input type="text" placeholder="Nome Completo" className="perfil-input" value={perfil.nome || 'Carregando...'} readOnly />
+        <input type="email" placeholder="E-mail" className="perfil-input" value={perfil.email || 'Carregando...'} readOnly />
+        <input type="text" placeholder="Telefone" className="perfil-input" value={perfil.telefone || 'Carregando...'} readOnly />
+        <input type="text" placeholder="RA" className="perfil-input" value={perfil.ra || 'Carregando...'} readOnly />
+        <input type="text" placeholder="Curso" className="perfil-input" value={perfil.curso || 'Carregando...'} readOnly />
+        <input type="text" placeholder="Período do Curso" className="perfil-input" value={perfil.periodo || 'Carregando...'} readOnly />
+        <input type="text" placeholder="Cidade" className="perfil-input" value={perfil.cidade || 'Carregando...'} readOnly />
+        <input type="text" placeholder="Polo" className="perfil-input" value={perfil.polo || 'Carregando...'} readOnly />
         <button className="voltar-btn">Voltar</button>
       </div>
     </div>

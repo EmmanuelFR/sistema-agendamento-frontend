@@ -39,10 +39,23 @@
 
 import React from 'react';
 import { FaUser, FaCalendarAlt, FaHeadset, FaSignOutAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Menu.css'; // Importa o arquivo CSS
 
 function Menu() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      // Exemplo de requisição para logout na API
+      await axios.post('http://localhost:8080/logout');
+      navigate('/login'); // Redireciona para a página de login
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error);
+    }
+  };
+
   return (
     <div className="menu-container">
       <div className="menu-logo">
@@ -51,24 +64,24 @@ function Menu() {
       <ul className="menu-items">
         <li>
           <FaUser className="menu-icon" />
-          <Link to="/perfil" className="menu-link">Meu Perfil</Link>
+          <Link to="/MeuPerfil" className="menu-link">Meu Perfil</Link>
         </li>
         <li>
           <FaCalendarAlt className="menu-icon" />
-          <Link to="/agendamento" className="menu-link">Agendamento de Avaliações</Link>
+          <Link to="/Agendamento" className="menu-link">Agendamento de Avaliações</Link>
         </li>
         <li>
           <FaCalendarAlt className="menu-icon" />
-          <Link to="/reagendamento" className="menu-link">Reagendamento de Avaliações</Link>
+          <Link to="/Reagendamento" className="menu-link">Reagendamento de Avaliações</Link>
         </li>
         <li>
           <FaHeadset className="menu-icon" />
-          <Link to="/suporte" className="menu-link">Suporte</Link>
+          <Link to="/Suporte" className="menu-link">Suporte</Link>
         </li>
       </ul>
-      <div className="menu-logout">
+      <div className="menu-logout" onClick={handleLogout}>
         <FaSignOutAlt className="menu-logout-icon" />
-        <Link to="/logout" className="menu-link">Sair</Link>
+        <span className="menu-link">Sair</span>
       </div>
     </div>
   );
