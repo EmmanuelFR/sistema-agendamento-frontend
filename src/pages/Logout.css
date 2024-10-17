@@ -7,11 +7,18 @@ body, html {
 }
 
 .logout-page-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100vh; */
+  min-height: 100vh; /* 100% da viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #B0EACD, #FFFFFF); /* Gradiente aplicado ao container */
+
 }
 
 .logout-header {
@@ -27,7 +34,7 @@ body, html {
   gap: 5px;
   color: #036C6E;
   cursor: pointer;
-  position: absolute; /* Posiciona o menu */
+  /* position: absolute; Posiciona o menu */
   left: 20px; /* Afasta da esquerda */
   top: 10px; 
 }
