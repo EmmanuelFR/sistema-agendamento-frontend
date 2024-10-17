@@ -2,23 +2,39 @@ import React from 'react';
 import './Login.css';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Importa o hook
 
 function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const navigate = useNavigate(); // Inicializa o hook
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:8080/api/login", {
-        email,
-        senha,
+        email: email,
+        senha: senha,
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
-      console.log(response.data); // Ação após o login
+
+      console.log(response.data); 
+      if (response.status === 200) {
+        // Login bem-sucedido, faça a navegação ou ação desejada
+        alert("Login bem-sucedido!");
+        navigate('/Menu'); // Redireciona para a página Menu
+      } else {
+        // Tratar erro de login
+        alert("Erro no login: Credenciais inválidas");
+      }
     } catch (error) {
       console.error("Erro no login:", error);
+      alert("Erro ao tentar realizar o login.");
     }
-  };
+};
 
   // Função para redirecionar para o link do JACAD UNIFAA
   const handleJacadClick = () => {
