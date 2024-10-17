@@ -14,7 +14,7 @@ const Logout = () => {
       </header>
 
       <div className="logout-content">
-        <AiOutlineLogout size={50} />
+       
         <h2>LOGOUT</h2>
         <p>Deseja realmente encerrar sua sessão?</p>
 
