@@ -23,7 +23,7 @@ body, html {
   position: relative;
 }
 
-.menu-icon, .logout-icon{
+.menu-icon-reagendamento, .logout-icon{
   display:flex;
   flex-direction: row;
   color: #036C6E;
@@ -31,7 +31,7 @@ body, html {
 }
 
 
-.menu-icon {
+.menu-icon-reagendamento {
   left: 20px;
 }
 

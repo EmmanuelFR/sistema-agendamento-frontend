@@ -6,7 +6,7 @@ const Suporte = () => {
   return (
     <div className="page-container">
       <header className="suporte-header">
-        <div className="menu-icon">
+        <div className="menu-icon-suporte">
           <AiOutlineMenu size={28} />
           <span>Menu</span>
         </div>

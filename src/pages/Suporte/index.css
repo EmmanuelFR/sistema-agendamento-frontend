@@ -22,7 +22,7 @@ body, html {
   padding: 10px 20px;
 }
 
-.menu-icon, .logout-icon {
+.menu-icon-suporte, .logout-icon {
   display: flex;
   align-items: center;
   gap: 5px;

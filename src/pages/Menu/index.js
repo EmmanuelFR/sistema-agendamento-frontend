@@ -147,19 +147,19 @@ function Menu() {
       </div>
       <ul className="menu-items">
         <li>
-          <FaUser className="menu-icon" />
+          <FaUser className="menu-icon-home" />
           <Link to="/MeuPerfil" className="menu-link">Meu Perfil</Link>
         </li>
         <li>
-          <FaCalendarAlt className="menu-icon" />
+          <FaCalendarAlt className="menu-icon-home" />
           <Link to="/Agendamento" className="menu-link">Agendamento de Avaliações</Link>
         </li>
         <li>
-          <FaCalendarAlt className="menu-icon" />
+          <FaCalendarAlt className="menu-icon-home" />
           <Link to="/Reagendamento" className="menu-link">Reagendamento de Avaliações</Link>
         </li>
         <li>
-          <FaHeadset className="menu-icon" />
+          <FaHeadset className="menu-icon-home" />
           <Link to="/Suporte" className="menu-link">Suporte</Link>
         </li>
       </ul>

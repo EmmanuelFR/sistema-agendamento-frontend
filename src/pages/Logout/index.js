@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
 
 const Logout = () => {
   return (

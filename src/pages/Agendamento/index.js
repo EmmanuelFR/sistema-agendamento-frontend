@@ -181,7 +181,7 @@ const Agendamento = () => {
     return (
         <div className="page-container">
             <header className="agendamento-header">
-                <div className="menu-icon">
+                <div className="menu-icon-agendamento">
                     <AiOutlineMenu size={28} />
                     <span>Menu</span>
                 </div>

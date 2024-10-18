@@ -28,16 +28,16 @@ body, html {
   padding: 10px 20px;
 }
 
-.menu-icon {
+/* .menu-icon {
   display: flex;
   align-items: center;
   gap: 5px;
   color: #036C6E;
   cursor: pointer;
-  /* position: absolute; Posiciona o menu */
-  left: 20px; /* Afasta da esquerda */
+  position: absolute;
+  left: 20px; 
   top: 10px; 
-}
+} */
 
 .logo {
   height: 125px;
