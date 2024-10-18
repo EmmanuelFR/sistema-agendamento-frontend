@@ -1,6 +1,5 @@
-import React from 'react';
-import './Login.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import './index.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Importa o hook
 

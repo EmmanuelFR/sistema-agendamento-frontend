@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { AiOutlineMail, AiOutlineWhatsApp, AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
-import './Suporte.css';
+import './index.css';
 
 const Suporte = () => {
   return (

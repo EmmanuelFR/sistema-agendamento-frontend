@@ -130,7 +130,7 @@
 import React from 'react';
 import { FaUser, FaCalendarAlt, FaHeadset, FaSignOutAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import './Menu.css'; // Importa o arquivo CSS
+import './index.css'; // Importa o arquivo CSS
 
 function Menu() {
   const navigate = useNavigate();

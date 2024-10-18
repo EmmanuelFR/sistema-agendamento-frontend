@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './Reagendamento.css';
+import './index.css';
 import { FaClock } from 'react-icons/fa';
 import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
 

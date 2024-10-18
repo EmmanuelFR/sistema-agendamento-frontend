@@ -32,7 +32,7 @@
 // export default MeuPerfil;
 
 import React, { useState, useEffect } from 'react';
-import './MeuPerfil.css';
+import './index.css';
 import { FaUserCircle, FaCamera } from 'react-icons/fa';
 import axios from 'axios';
 
