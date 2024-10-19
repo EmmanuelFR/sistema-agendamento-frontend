@@ -192,7 +192,7 @@ function Menu() {
 
   return (
     <div className="menu-container">
-      <Button className="menu-logout" sx={{ position: 'fixed', top: '20px', right: '20px'
+      <Button className="menu-sair" sx={{ position: 'fixed', top: '20px', right: '20px'
   }} onClick={handleLogout}>
         <FaSignOutAlt className="menu-logout-icon" />
         Sair

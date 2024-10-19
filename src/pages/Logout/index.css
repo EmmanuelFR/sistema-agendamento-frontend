@@ -1,4 +1,4 @@
-body, html {
+/* body, html {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -7,28 +7,28 @@ body, html {
 }
 
 .logout-page-container {
-  /* display: flex;
+   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; */
-  min-height: 100vh; /* 100% da viewport height */
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #B0EACD, #FFFFFF); /* Gradiente aplicado ao container */
+  background: linear-gradient(180deg, #B0EACD, #FFFFFF);
 
 }
 
 .logout-header {
   width: 100%;
   display: flex;
-  justify-content: center; /* Centraliza o logo */
+  justify-content: center;
   padding: 10px 20px;
 }
 
-/* .menu-icon {
+ .menu-icon {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -37,7 +37,7 @@ body, html {
   position: absolute;
   left: 20px; 
   top: 10px; 
-} */
+} 
 
 .logo {
   height: 125px;
@@ -64,7 +64,7 @@ p {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  gap: 10px; /* Espaçamento entre os botões */
+  gap: 10px;
 }
 .btn-sim:hover, .btn-nao:hover {
   opacity:0.3;
@@ -86,5 +86,53 @@ button {
 
 .btn-nao {
   background-color: #e74c3c;
+} */
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #B0EACD 0%, #FFFFFF 100%);
+  font-family: 'Arial', sans-serif;
 }
 
+.logout-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #B0EACD, #FFFFFF);
+}
+
+.logout-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-logout {
+  height: 125px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-sim {
+  background-color: #02896f;
+}
+
+.btn-nao {
+  background-color: #e74c3c;
+}
