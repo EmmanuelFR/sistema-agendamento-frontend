@@ -26,13 +26,17 @@ body, html {
   top: 0;
 }
 
-.menu-icon-agendamento, .logout-icon {
+.menu-icon-reagendamento, .logout-icon-reagendamento {
   color: #036C6E;
   cursor: pointer;
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 .logo {
   height: 50px;
+  margin-top: 250px;
+  margin-right: 40px;
 }
 
 h2 {
