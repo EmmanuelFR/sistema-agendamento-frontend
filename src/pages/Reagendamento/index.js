@@ -44,14 +44,18 @@ const Reagendamento = () => {
         };
 
         try {
-            await axios.put(`http://localhost:8080/api/reagendamentos/${agendamentoSelecionado.id}`, novoAgendamento);
+            // Faz a requisição para o novo endpoint
+            await axios.put(`http://localhost:8080/api/agendamentos/${agendamentoSelecionado.id}/reagendar`, novoAgendamento);
+            
             alert('Reagendamento realizado com sucesso');
-            buscarAgendamentos();  // Atualiza a lista
-            setSelectedDateTime(null);  // Limpa os campos após o reagendamento
+            buscarAgendamentos();  
+            setSelectedDateTime(null); 
             setDisciplina('Disciplina 1');
             setAgendamentoSelecionado(null);
         } catch (error) {
             console.error('Erro ao reagendar:', error);
+            // Aqui você pode adicionar um tratamento de erro mais amigável para o usuário, 
+            // como exibir uma mensagem de erro na tela.
         }
     };
 
