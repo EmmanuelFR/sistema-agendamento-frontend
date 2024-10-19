@@ -664,7 +664,6 @@ button:hover {
 
 */
 
-/* Corpo da página */
 body, html {
   height: 100%;
   margin: 0;
@@ -674,17 +673,13 @@ body, html {
 }
 
 .page-container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px; */
-  min-height: 100vh; /* 100% da viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #B0EACD, #FFFFFF); /* Gradiente aplicado ao container */
+  background: linear-gradient(180deg, #B0EACD, #FFFFFF);
+  position: relative;
 }
 
 .agendamento-header {
@@ -693,6 +688,10 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
 }
 
 .menu-icon-agendamento, .logout-icon {
@@ -704,8 +703,29 @@ body, html {
   position: absolute;
 }
 
+.menu-icon-agendamento {
+  top: -100px;
+  left: -500px;
+  position: absolute;
+  color: #036C6E;
+  cursor: pointer;
+}
+
+.logout-icon {
+  top: -100px !important;
+  right: -460px !important;
+  position: absolute !important;
+  color: #036C6E;
+  cursor: pointer;
+  z-index: 999;
+}
+
 .logo {
   height: 50px;
+  margin-bottom: 40px;
+  position: relative;
+  top: -40px;
+  right: 214px;
 }
 
 h2 {

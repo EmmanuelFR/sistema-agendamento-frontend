@@ -144,78 +144,240 @@
 
 // 
 
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import './index.css';
-import { FaClock } from 'react-icons/fa';
+// import React, { useState } from 'react';
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css';
+// import './index.css';
+// import { FaClock } from 'react-icons/fa';
+// import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
+// import axios from 'axios';  // Adicione esta linha
+
+// const Agendamento = () => {
+//     const [selectedDate, setSelectedDate] = useState(new Date());
+//     const [selectedTime, setSelectedTime] = useState('08:00');
+//     const [disciplina, setDisciplina] = useState('Disciplina 1'); // Adicione estado para a disciplina
+
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+//         const [hours, minutes] = selectedTime.split(":");
+//         const agendamentoDate = new Date(selectedDate);
+//         agendamentoDate.setHours(hours, minutes);
+
+//         const agendamento = {
+//             data: agendamentoDate,
+//             disciplina: disciplina,
+//         };
+
+//         // Enviar os dados do agendamento para a API
+//         axios.post('http://localhost:8080/api/agendamentos', agendamento) // Substitua pelo endpoint correto da API
+//             .then(response => {
+//                 console.log('Agendamento criado com sucesso:', response.data);
+//             })
+//             .catch(error => {
+//                 console.error('Erro ao criar agendamento:', error);
+//             });
+//     };
+
+//     return (
+//         <div className="page-container">
+//             <header className="agendamento-header">
+//                 <div className="menu-icon-agendamento">
+//                     <AiOutlineMenu size={28} />
+//                     <span>Menu</span>
+//                 </div>
+//                 <img className="logo" src="/images/images-removebg-preview.png" alt="Logo" />
+//                 <div className="logout-icon">
+//                     <AiOutlineLogout size={28} />
+//                     <span>Sair</span>
+//                 </div>
+//             </header>
+
+//             <h2>Agendamento de Avaliações</h2>
+//             <form onSubmit={handleSubmit} className="calendario">
+//                 <label>Disciplina:</label>
+//                 <select value={disciplina} onChange={(e) => setDisciplina(e.target.value)}>
+//                     <option value="Disciplina 1">Disciplina 1</option>
+//                     <option value="Disciplina 2">Disciplina 2</option>
+//                 </select>
+
+//                 <label>Selecione a Data:</label>
+//                 <Calendar onChange={setSelectedDate} value={selectedDate} />
+
+//                 <label>Horário da Aplicação: <FaClock /></label>
+//                 <input 
+//                     type="time" 
+//                     value={selectedTime} 
+//                     onChange={(e) => setSelectedTime(e.target.value)} 
+//                 />
+
+//                 <div className="buttons">
+//                     <button type="submit">Salvar</button>
+//                     <button type="button">Reagendar</button>
+//                 </div>
+//             </form>
+//         </div>
+//     );
+// };
+
+// export default Agendamento;
+
+import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
-import axios from 'axios';  // Adicione esta linha
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { Container, Typography, Button, Box, Select, MenuItem, InputLabel, FormControl, IconButton, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './index.css';
 
 const Agendamento = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [selectedTime, setSelectedTime] = useState('08:00');
-    const [disciplina, setDisciplina] = useState('Disciplina 1'); // Adicione estado para a disciplina
+    const [selectedDateTime, setSelectedDateTime] = useState(null);
+    const [disciplina, setDisciplina] = useState('Disciplina 1');
+    const [agendamentos, setAgendamentos] = useState([]);
+    const navigate = useNavigate();
+    const [agendamentoSelecionado, setAgendamentoSelecionado] = useState(null);
 
-    const handleSubmit = (e) => {
+    const selecionarAgendamento = (agendamento) => {
+        setAgendamentoSelecionado(agendamento);
+      };
+
+    useEffect(() => {
+        buscarAgendamentos(); // Certifique-se de que está sendo chamado corretamente
+    }, []);    
+
+    const buscarAgendamentos = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/api/agendamentos');
+            setAgendamentos(response.data);  // Salvar os dados retornados
+        } catch (error) {
+            console.error('Erro ao buscar agendamentos:', error);
+        }
+    };    
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const [hours, minutes] = selectedTime.split(":");
-        const agendamentoDate = new Date(selectedDate);
-        agendamentoDate.setHours(hours, minutes);
+
+        if (!selectedDateTime || !disciplina) {
+            alert('Preencha todos os campos');
+            return;
+        }
+        
+        if (!selectedDateTime) {
+            alert('Selecione uma data e hora');
+            return;
+        }        
 
         const agendamento = {
-            data: agendamentoDate,
-            disciplina: disciplina,
+          data: selectedDateTime.toISOString(), // Converter data para o formato correto
+          disciplina: disciplina,
         };
 
-        // Enviar os dados do agendamento para a API
-        axios.post('http://localhost:8080/api/agendamentos', agendamento) // Substitua pelo endpoint correto da API
-            .then(response => {
-                console.log('Agendamento criado com sucesso:', response.data);
-            })
-            .catch(error => {
-                console.error('Erro ao criar agendamento:', error);
-            });
+        console.log('Data/Hora selecionada:', selectedDateTime.toISOString());
+        console.log('Agendamento:', agendamento);
+
+        try {
+            const response = await axios.post('http://localhost:8080/api/agendamentos', agendamento);
+            if (response.status === 200) {  
+                console.log('Agendamento salvo:', response.data);
+
+                buscarAgendamentos();  // Atualiza a tabela após o sucesso da criação do agendamento
+                setSelectedDateTime(null);
+                setDisciplina('Disciplina 1');
+            }
+        } catch (error) {
+            console.error('Erro ao criar agendamento:', error);
+        }
+    };         
+
+    const handleReagendar = () => {
+        navigate('/Reagendamento'); // Redireciona para a página de Reagendamento
+    };
+
+    const handleVoltar = () => {
+        navigate('/Menu'); // Redireciona para a página de Menu
+    };
+
+    const handleLogout = () => {
+        navigate('/Logout'); // Redireciona para a página de Logout
     };
 
     return (
-        <div className="page-container">
-            <header className="agendamento-header">
-                <div className="menu-icon-agendamento">
+        <Container maxWidth="sm" className="page-container">
+            <Box className="agendamento-header" display="flex" justifyContent="space-between" alignItems="center">
+                <IconButton className="menu-icon-agendamento" onClick={handleVoltar}>
                     <AiOutlineMenu size={28} />
-                    <span>Menu</span>
-                </div>
+                </IconButton>
                 <img className="logo" src="/images/images-removebg-preview.png" alt="Logo" />
-                <div className="logout-icon">
+                <IconButton className="logout-icon" onClick={handleLogout}>
                     <AiOutlineLogout size={28} />
-                    <span>Sair</span>
-                </div>
-            </header>
+                </IconButton>
+            </Box>
 
-            <h2>Agendamento de Avaliações</h2>
-            <form onSubmit={handleSubmit} className="calendario">
-                <label>Disciplina:</label>
-                <select value={disciplina} onChange={(e) => setDisciplina(e.target.value)}>
-                    <option value="Disciplina 1">Disciplina 1</option>
-                    <option value="Disciplina 2">Disciplina 2</option>
-                </select>
+            <Typography variant="h4" component="h2" gutterBottom>
+                Agendamento de Avaliações
+            </Typography>
 
-                <label>Selecione a Data:</label>
-                <Calendar onChange={setSelectedDate} value={selectedDate} />
+            <Box component="form" onSubmit={handleSubmit} noValidate className="calendario" sx={{mt: 1}}>
+                <FormControl fullWidth margin="normal">
+                    <InputLabel id="disciplina-label">Disciplina</InputLabel>
+                    <Select
+                        labelId="disciplina-label"
+                        id="disciplina"
+                        value={disciplina}
+                        label="Disciplina"
+                        onChange={(e) => setDisciplina(e.target.value)}>
+                        <MenuItem value="Disciplina 1">Disciplina 1</MenuItem>
+                        <MenuItem value="Disciplina 2">Disciplina 2</MenuItem>
+                    </Select>
+                </FormControl>
 
-                <label>Horário da Aplicação: <FaClock /></label>
-                <input 
-                    type="time" 
-                    value={selectedTime} 
-                    onChange={(e) => setSelectedTime(e.target.value)} 
-                />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DateTimePicker
+                        label="Data e Hora da Aplicação"
+                        value={selectedDateTime}
+                        onChange={setSelectedDateTime}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                </LocalizationProvider>
 
-                <div className="buttons">
-                    <button type="submit">Salvar</button>
-                    <button type="button">Reagendar</button>
-                </div>
-            </form>
-        </div>
+                <Box display="flex" justifyContent="space-between" mt={3}>
+                    <Button type="submit" variant="contained" color="primary">
+                        Salvar
+                    </Button>
+                    <Button type="button" variant="contained" color="secondary" onClick={handleReagendar}>
+                        Reagendar
+                    </Button>
+                </Box>
+            </Box>
+
+            {/* Tabela de Agendamentos */}
+            <TableContainer component={Paper} sx={{mt: 3}}>
+                <Table sx={{minWidth: 650}} aria-label="tabela de agendamentos">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Disciplina</TableCell>
+                            <TableCell align="left">Data e Hora</TableCell>
+                            <TableCell align="left">Cancelado</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {agendamentos.map((agendamento) => (
+                            <TableRow key={agendamento.id} sx={{'&:last-child td, &:last-child th': {border: 0}}} onClick={() => selecionarAgendamento(agendamento)}>
+                                <TableCell component="th" scope="row">
+                                    {agendamento.disciplina}
+                                </TableCell>
+                                <TableCell align="left">
+                                    {new Date(agendamento.data).toLocaleString()}
+                                </TableCell>
+                                <TableCell align="left">{agendamento.cancelado ? 'Sim' : 'Não'}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Container>
     );
 };
 

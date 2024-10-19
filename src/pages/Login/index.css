@@ -78,7 +78,7 @@ h1 {
 
 /* Login.css */
 
-.login-container {
+/* .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -170,4 +170,94 @@ h1 {
 
 .jacad-btn:hover {
   opacity:0.2;
+} */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #B0EACD, #FFFFFF);
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-logo img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.MuiTextField-root {
+  margin-bottom: 15px;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #1F6F5C;
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #135944;
+}
+
+.MuiButton-containedSecondary {
+  background-color: #007BFF;
+}
+
+.MuiButton-containedSecondary:hover {
+  background-color: #0056b3;
+}
+
+a {
+  color: #2C8ED6;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+a:hover {
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.login-btn {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  background-color: #007BFF; /* Verde */
+  color: white; /* Texto branco */
+}
+
+.login-btn:hover {
+  opacity: 0.8;
+}
+
+.jacad-btn {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  background-color: #1F6F5C;/* Azul */
+  color: white; /* Texto branco */
+}
+
+.jacad-btn:hover {
+  opacity: 0.8;
 }
