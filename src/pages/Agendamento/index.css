@@ -664,7 +664,7 @@ button:hover {
 
 */
 
-body, html {
+/* body, html {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -806,4 +806,56 @@ button:hover {
       width: 100%;
       margin-bottom: 10px;
   }
+} */
+
+body, html { 
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #B0EACD 0%, #FFFFFF 100%);
+  font-family: 'Arial', sans-serif;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #B0EACD, #FFFFFF);
+}
+
+.agendamento-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: absolute;
+  top: 0;
+}
+
+.logo {
+  height: 50px;
+}
+
+h2 {
+  color: #036C6E;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 45%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #02896f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #036C6E;
 }
