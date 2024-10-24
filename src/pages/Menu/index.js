@@ -214,10 +214,10 @@ function Menu() {
             <FaCalendarAlt className="menu-icon-home" />
             <Link to="/Agendamento" className="menu-link">Agendamento de Avaliações</Link>
           </li>
-          <li>
+          {/* <li>
             <FaCalendarAlt className="menu-icon-home" />
             <Link to="/Reagendamento" className="menu-link">Reagendamento de Avaliações</Link>
-          </li>
+          </li> */}
           <li>
             <FaHeadset className="menu-icon-home" />
             <Link to="/Suporte" className="menu-link">Suporte</Link>

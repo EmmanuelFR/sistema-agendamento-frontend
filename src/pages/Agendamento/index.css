@@ -858,4 +858,81 @@ button {
 
 button:hover {
   background-color: #036C6E;
+} 
+
+.modal {  
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; 
+  max-width: 400px; 
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); 
+  z-index: 1000; 
 }
+
+/* .green-button {
+  border-color: green;
+  color: green;
+}
+
+.green-button:hover {
+  background-color: #d4f5e9;
+  border-color: green;
+  color: green;
+} */
+
+/* .reagendar-button {
+  background-color: #02896f; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+
+.reagendar-button:hover {
+  background-color: #036C6E;
+} */
+
+/* .reagendar-button { 
+  color: #02896f; 
+  border-color: #02896f; 
+}
+
+.reagendar-button:hover {
+  background-color: #036C6E; 
+  border-color: #036C6E; 
+} */
+
+/* button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedSizeMedium.MuiButton-sizeMedium.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  color: #02896f !important;
+  border-color: #02896f !important;
+} */
+
+/* .status-cell { 
+  font-weight: bold; 
+  color: #d32f2f; 
+} */
+
+/* .css-1x6kmiy-MuiButtonBase-root-MuiButton-root {
+  color: #02896f;
+  border-color: #02896f;
+}
+
+.css-1x6kmiy-MuiButtonBase-root-MuiButton-root:hover{
+  background-color: #036C6E;
+  border-color: #036C6E;
+} */
+
+/* .MuiButton-root.MuiButton-outlined.MuiButton-outlinedSecondary {
+  color: #02896f;
+  border-color: #02896f;
+}
+
+.MuiButton-root.MuiButton-outlined.MuiButton-outlinedSecondary:hover {
+  background-color: #036C6E;
+  border-color: #036C6E;
+} */
