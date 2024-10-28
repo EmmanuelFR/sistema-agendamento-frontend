@@ -1757,6 +1757,9 @@ const Agendamento = () => {
     const [snackbarSuccessAgendamento, setSnackbarSuccessAgendamento] = useState(false);
     const [snackbarErrorAgendamento, setSnackbarErrorAgendamento] = useState(false);
     const [snackbarSuccessReagendamento, setSnackbarSuccessReagendamento] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState("");
+    const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
     const horariosDisponiveis = [
         '08:00 às 09:00',
@@ -1780,6 +1783,18 @@ const Agendamento = () => {
         buscarAgendamentos(); 
     }, []);
 
+    // Função para exibir o Snackbar com uma mensagem e gravidade (sucesso ou erro)
+    const showSnackbar = (message, severity) => {
+        setSnackbarMessage(message);
+        setSnackbarSeverity(severity);
+        setSnackbarOpen(true);
+    };
+
+    // Função para fechar o Snackbar
+    // const handleCloseSnackbar = () => {
+    //     setSnackbarOpen(false);
+    // };
+
     const handleAgendar = async (e) => {
         e.preventDefault();
 
@@ -1790,13 +1805,37 @@ const Agendamento = () => {
 
         const dataHora = `${selectedDateTime.format('YYYY-MM-DD')}T${selectedHorario}:00`;
 
+        // Verificar se o usuário já agendou a mesma prova
+        const provaJaAgendada = agendamentos.some(
+            (agendamento) => agendamento.disciplina === disciplina
+        );
+
+        if (provaJaAgendada) {
+            showSnackbar("Essa prova já foi agendada", "error");
+            return; // Impede o agendamento duplicado
+        }
+
+        // Verificar se o usuário já possui uma prova no mesmo dia e horário
+        const provaNoMesmoHorario = agendamentos.some(
+            (agendamento) => agendamento.dataHora === dataHora && !agendamento.cancelado
+        );
+
+        if (provaNoMesmoHorario) {
+            showSnackbar("Prova já agendada neste dia e horário", "error");
+            return; // Impede o agendamento no mesmo horário
+        }
+
         const agendamento = {
             dataHora,
             disciplina: disciplina,
         };
 
         try {
-            const response = await axios.post('http://localhost:8080/api/agendamentos', agendamento);
+            const response = await axios.post("http://localhost:8080/api/agendamentos", agendamento, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             if (response.status === 200) {
                 buscarAgendamentos();
                 setSnackbarSuccessAgendamento(true); // Exibe o Snackbar de sucesso
@@ -1848,6 +1887,7 @@ const Agendamento = () => {
         setSnackbarSuccessAgendamento(false);
         setSnackbarErrorAgendamento(false);
         setSnackbarSuccessReagendamento(false);
+        setSnackbarOpen(false);
     };
 
     return (
@@ -2031,6 +2071,17 @@ const Agendamento = () => {
                     Reagendamento realizado com sucesso!
                 </Alert>
             </Snackbar>
+
+            <Snackbar 
+                open={snackbarOpen} 
+                autoHideDuration={6000} 
+                onClose={handleCloseSnackbar}
+            >
+                <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity} sx={{ width: '100%' }}>
+                    {snackbarMessage}
+                </Alert>
+            </Snackbar>
+
         </Container>
     );
 };
