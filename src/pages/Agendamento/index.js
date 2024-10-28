@@ -1736,7 +1736,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Typography, Button, Box, Select, MenuItem, InputLabel, FormControl, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Snackbar, Alert } from '@mui/material';
+import { Modal, Container, Typography, Button, Box, Select, MenuItem, InputLabel, FormControl, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Snackbar, Alert } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -2007,7 +2007,7 @@ const Agendamento = () => {
                 </Table>
             </TableContainer>
 
-            {modalReagendamentoAberto && (
+            {/* {modalReagendamentoAberto && (
                 <div className="modal"> 
                     <Typography variant="h6" gutterBottom>
                         Reagendar Avaliação
@@ -2051,7 +2051,63 @@ const Agendamento = () => {
                         </Button>
                     </Box>
                 </div>
+            )} */}
+
+            {modalReagendamentoAberto && (
+            <Modal open={modalReagendamentoAberto} onClose={() => setModalReagendamentoAberto(false)}>
+            <Box sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 400,
+              bgcolor: 'background.paper',
+              borderRadius: 2,
+              boxShadow: 24,
+              p: 4,
+            }}>
+              <Typography variant="h6" gutterBottom>
+                Reagendar Avaliação
+              </Typography>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  label="Nova Data"
+                  value={novaDataHora}
+                  onChange={(newValue) => setNovaDataHora(newValue)} 
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+              <FormControl fullWidth margin="normal">
+                <InputLabel id="novo-horario-label">Novo Horário</InputLabel>
+                <Select
+                  labelId="novo-horario-label"
+                  id="novo-horario"
+                  value={novaDataHora ? novaDataHora.format('HH:mm') : ''} 
+                  label="Novo Horário"
+                  onChange={(e) => {
+                    const [hora, minuto] = e.target.value.split(':');
+                    setNovaDataHora(novaDataHora.set('hour', hora).set('minute', minuto));
+                  }}
+                >
+                  {horariosDisponiveis.map((horario) => (
+                    <MenuItem key={horario} value={horario.substring(0, 5)}>
+                      {horario}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <Box display="flex" justifyContent="flex-end" mt={3}>
+                <Button variant="contained" color="primary" onClick={handleSalvarReagendamento}> 
+                  Salvar
+                </Button>
+                <Button variant="outlined" color="secondary" onClick={() => setModalReagendamentoAberto(false)} sx={{ ml: 2 }}>
+                  Cancelar
+                </Button>
+              </Box>
+            </Box>
+          </Modal>          
             )}
+
 
             {/* Snackbars para mensagens */}
             <Snackbar open={snackbarSuccessAgendamento} autoHideDuration={6000} onClose={handleCloseSnackbar}>
