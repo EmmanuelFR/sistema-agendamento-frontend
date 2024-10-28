@@ -6,6 +6,7 @@ import MeuPerfil from './pages/MeuPerfil';
 import Agendamento from './pages/Agendamento';
 import Suporte from './pages/Suporte';
 import Logout from './pages/Logout';
+import Polo from './pages/Polo';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Agendamento" element={<Agendamento />} />
         <Route path="/Suporte" element={<Suporte />} />
         <Route path="/Logout" element={<Logout />} />
+        <Route path="/Polo" element={<Polo />} />
       </Routes>
     </Router>
   );

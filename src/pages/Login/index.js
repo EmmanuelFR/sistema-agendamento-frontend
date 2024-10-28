@@ -89,7 +89,7 @@
 // export default Login;
 
 import React, { useState } from 'react';
-import { TextField, Button, Container, Typography, Box } from '@mui/material'; // Importações corretas do Material-UI
+import { TextField, Button, Container, Typography, Box, MenuItem } from '@mui/material'; // Importações corretas do Material-UI
 import './index.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -98,6 +98,7 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [tipoUsuario, setTipoUsuario] = useState("aluno");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -106,6 +107,7 @@ function Login() {
       const response = await axios.post("http://localhost:8080/api/login", {
         email: email,
         senha: senha,
+        tipoUsuario: tipoUsuario
       }, {
         headers: {
           'Content-Type': 'application/json'
@@ -114,7 +116,13 @@ function Login() {
 
       if (response.status === 200) {
         alert("Login bem-sucedido!");
-        navigate('/Menu');
+        if (tipoUsuario === "aluno") {
+          navigate('/Menu'); // Redireciona para a página de agendamentos
+        } else if (tipoUsuario === "administrador") {
+          navigate('/Administrador'); // Redireciona para a página de administrador
+        } else if (tipoUsuario === "polo") {
+          navigate('/Polo'); // Redireciona para a página de polo
+        }
       } else {
         alert("Erro no login: Credenciais inválidas");
       }
@@ -152,6 +160,22 @@ function Login() {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
+
+        {/* Campo para o tipo de usuário */}
+        <TextField
+          label="Tipo de Usuário"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={tipoUsuario}
+          onChange={(e) => setTipoUsuario(e.target.value)}
+          select
+        >
+          <MenuItem value="aluno">Aluno</MenuItem>
+          <MenuItem value="administrador">Administrador</MenuItem>
+          <MenuItem value="polo">Polo</MenuItem>
+        </TextField>
+
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
           <a href="/RedefinirSenha" style={{ textDecoration: 'none', color: '#2C8ED6' }}>Esqueceu a senha? Clique aqui!</a>
         </Box>
