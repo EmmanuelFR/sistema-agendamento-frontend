@@ -7,6 +7,7 @@ import Agendamento from './pages/Agendamento';
 import Suporte from './pages/Suporte';
 import Logout from './pages/Logout';
 import Polo from './pages/Polo';
+import Administrador from './pages/Administrador';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Suporte" element={<Suporte />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path="/Polo" element={<Polo />} />
+        <Route path="/Administrador" element={<Administrador />} />
       </Routes>
     </Router>
   );

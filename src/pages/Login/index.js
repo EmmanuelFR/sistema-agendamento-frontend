@@ -117,11 +117,11 @@ function Login() {
       if (response.status === 200) {
         alert("Login bem-sucedido!");
         if (tipoUsuario === "aluno") {
-          navigate('/Menu'); // Redireciona para a página de agendamentos
+          navigate('/Menu');
         } else if (tipoUsuario === "administrador") {
-          navigate('/Administrador'); // Redireciona para a página de administrador
+          navigate('/Administrador');
         } else if (tipoUsuario === "polo") {
-          navigate('/Polo'); // Redireciona para a página de polo
+          navigate('/Polo');
         }
       } else {
         alert("Erro no login: Credenciais inválidas");
