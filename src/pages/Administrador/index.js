@@ -364,3 +364,162 @@ function Administrador() {
 }
 
 export default Administrador;
+
+// import React, { useState } from 'react';
+// import { 
+//     Container,
+//     TextField, 
+//     Button, 
+//     Box, 
+//     Typography, 
+//     FormControl, 
+//     InputLabel, 
+//     Select, 
+//     MenuItem, 
+//     AppBar, 
+//     Toolbar,
+//     IconButton,
+//     Dialog,
+//     DialogTitle,
+//     DialogContent,
+//     DialogActions
+// } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import LogoutIcon from '@mui/icons-material/Logout';
+
+// function Administrador() {
+//     const [modulos, setModulos] = useState([]); 
+//     const [alunos, setAlunos] = useState([]);
+//     const [openAlunoModal, setOpenAlunoModal] = useState(false);
+
+//     const handleAdicionarModulo = () => {
+//         setModulos([...modulos, { 
+//             nome: '', 
+//             periodoInicio: '', 
+//             periodoFim: '', 
+//             horarios: [], 
+//             diasSemana: [] 
+//         }]);
+//     };
+
+//     const handleRemoverModulo = (index) => {
+//         const novosModulos = [...modulos];
+//         novosModulos.splice(index, 1);
+//         setModulos(novosModulos);
+//     };
+
+//     const handleMudancaModulo = (index, campo, valor) => {
+//         const novosModulos = [...modulos];
+//         novosModulos[index][campo] = valor;
+//         setModulos(novosModulos);
+//     };
+
+//     const handleAdicionarHorario = (index) => {
+//         const novosModulos = [...modulos];
+//         novosModulos[index].horarios.push('');
+//         setModulos(novosModulos);
+//     };
+
+//     const handleRemoverHorario = (indexModulo, indexHorario) => {
+//         const novosModulos = [...modulos];
+//         novosModulos[indexModulo].horarios.splice(indexHorario, 1);
+//         setModulos(novosModulos);
+//     };
+
+//     const handleMudancaHorario = (indexModulo, indexHorario, valor) => {
+//         const novosModulos = [...modulos];
+//         novosModulos[indexModulo].horarios[indexHorario] = valor;
+//         setModulos(novosModulos);
+//     };
+
+//     const handleMudancaDiasSemana = (index, valor) => {
+//         const novosModulos = [...modulos];
+//         novosModulos[index].diasSemana = valor;
+//         setModulos(novosModulos);
+//     };
+
+//     const handleSubmit = () => {
+//         console.log(modulos);
+//     };
+
+//     // Funções para gerenciar alunos
+//     const handleAdicionarAluno = () => {
+//         setOpenAlunoModal(true);
+//     };
+
+//     const handleFecharAlunoModal = () => {
+//         setOpenAlunoModal(false);
+//     };
+
+//     const handleSalvarAluno = () => {
+//       // 1. Coletar os dados do formulário
+//       // 2. Validar os dados (opcional)
+//       // 3. Salvar os dados no banco de dados (usando fetch, axios ou similar)
+//       // 4. Fechar o modal: setOpenAlunoModal(false);
+//     };
+
+//     return (
+//         <Container>
+//             {/* AppBar para logo, botão de menu e botão de sair */}
+//             <AppBar position="static" color="transparent" elevation={0}>
+//                 <Toolbar>
+//                     <IconButton edge="start" color="inherit" aria-label="menu">
+//                         <MenuIcon />
+//                     </IconButton>
+
+//                     <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
+//                         <img src="/images/images-removebg-preview.png" alt="Logo do Sistema de Agendamento" style={{ height: 50, background: 'none' }} />
+//                     </Box>
+
+//                     <IconButton edge="end" color="inherit" aria-label="logout">
+//                         <LogoutIcon />
+//                     </IconButton>
+//                 </Toolbar>
+//             </AppBar>
+
+//             <Typography variant="h4" gutterBottom align="center" mt={3}>
+//                 Configurar Horários e Datas das Provas
+//             </Typography>
+
+//             <Box display="flex" justifyContent="space-between" mt={3}>
+//             <Button variant="contained" onClick={handleAdicionarModulo} sx={{ flexGrow: 0 }}>
+//               Adicionar Módulo
+//             </Button>
+//             <Button variant="contained" onClick={handleAdicionarAluno}> 
+//               Adicionar Aluno
+//             </Button>
+//           </Box>
+
+//             {modulos.map((modulo, index) => (
+//                 <Box key={index} mt={3} p={2} border={1} borderColor="grey.300">
+//                     {/* ... (código para exibir os módulos) ... */}
+//                 </Box>
+//             ))}
+
+//             {/* Modal para adicionar aluno */}
+//             <Dialog open={openAlunoModal} onClose={handleFecharAlunoModal}>
+//                 <DialogTitle>Adicionar Aluno</DialogTitle>
+//                 <DialogContent>
+//                     {/* Formulário para adicionar aluno */}
+//                     <TextField label="RA" fullWidth margin="dense" /> 
+//                     <TextField label="Nome" fullWidth margin="dense" /> 
+//                     <TextField label="Curso" fullWidth margin="dense" /> 
+//                     <TextField label="Disciplinas Cursadas" fullWidth margin="dense" /> 
+//                     <TextField label="E-mail" fullWidth margin="dense" /> 
+//                     <TextField label="Contato" fullWidth margin="dense" /> 
+//                     {/* Outros campos que você julgar pertinentes */}
+//                 </DialogContent>
+//                 <DialogActions>
+//                     <Button onClick={handleFecharAlunoModal}>Cancelar</Button>
+//                     <Button onClick={handleSalvarAluno}>Salvar</Button> 
+//                 </DialogActions>
+//             </Dialog>
+
+//             <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ mt: 3, display: 'none' }}>
+//                 Salvar
+//             </Button>
+//         </Container>
+//     );
+// }
+
+// export default Administrador;
