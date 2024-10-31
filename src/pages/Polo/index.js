@@ -200,11 +200,17 @@
 // export default Polo;
 
 import React from 'react';
-import { Container, Typography, Box, Grid, Button } from '@mui/material';
+import { Container, Typography, Box, Grid, Button, IconButton } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import './index.css';
 import gerarRelatorioPDF from '../../utils/gerarRelatorioPDF';
+import { useNavigate } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 function Polo() {
+
+  const navigate = useNavigate();
+  
   // Dados das provas (mockados) - Substitua pelos seus dados reais
   const provas = [
     { id: 1, nome: 'Disciplina 1 - A2', data: '10/11/2024', horario: '08:00:00', local: 'Sala 101' },
@@ -252,11 +258,16 @@ function Polo() {
     { field: 'curso', headerName: 'Curso', width: 150 },
   ];
 
+  const handleLogout = () => {
+    navigate('/login');
+  };
+
   return (
     <Container maxWidth="xs" className="polo-container" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <div className="botoes-container"> 
-        <Button className="botao-menu">Menu</Button> 
-        <Button className="botao-sair">Sair</Button> 
+      <IconButton edge="end" color="inherit" aria-label="logout" onClick={handleLogout}>
+        <LogoutIcon /> Sair
+      </IconButton>
       </div>
       <div className="polo-logo"> 
         <img src="/images/images-removebg-preview.png" alt="Logo" />
