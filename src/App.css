@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-base {
+    padding: 20px;
+}
+
+body {
+
+    background: linear-gradient(180deg, #B0EACD 0%, #FFFFFF 100%);
+
+    background-size: cover; /* Faz com que o gradiente cubra toda a tela */
+
+    background-repeat: no-repeat; /* Impede que o gradiente se repita */
+
+    height: 100vh; /* Garante que o fundo cubra toda a altura da tela */
+
+}

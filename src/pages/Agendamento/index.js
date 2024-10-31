@@ -144,7 +144,7 @@ const Agendamento = () => {
     };
 
     return (
-        <Container maxWidth="sm" className="page-container">
+        <Container>
             <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                 <IconButton aria-label="menu" sx={{ color: '#036C6E' }} onClick={() => navigate('/Menu')}>
                     <AiOutlineMenu size={28} />
