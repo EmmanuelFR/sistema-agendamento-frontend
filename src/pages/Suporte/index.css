@@ -1,36 +1,12 @@
-.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
 
-.suporte-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
 
 .menu-icon-suporte, .logout-icon {
   color: #036C6E;
   cursor: pointer;
 }
 
-.menu-icon-suporte {
-  top: -100px;
-  left: -500px;
-  position: absolute;
-  color: #036C6E;
-  cursor: pointer;
-}
-
 .logo-suporte {
-  position: absolute;
-  height: 80px;
-  right: 260px;
+  height: 100px;
 }
 
 .support-options {
@@ -41,5 +17,14 @@
 
 .support-option {
   width: 100%;
-  max-width: 400px;
+  
+}
+
+.support-option h6 {
+  margin-bottom:15px;
+}
+
+.containerBase h4 {
+  margin-top:15px;
+  margin-bottom:15px;
 }

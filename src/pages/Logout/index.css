@@ -1,10 +1,4 @@
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, #B0EACD 0%, #FFFFFF 100%);
-  font-family: 'Arial', sans-serif;
-}
+
 
 .logout-page-container {
   min-height: 100vh;

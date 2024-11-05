@@ -1,9 +1,10 @@
 .polo-container {
+    
+    align-items: center;
+  
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 200vh;
-    min-width: 150vh;
+    min-width: 100%;
   }
   
   .polo-logo {
@@ -12,7 +13,7 @@
   }
   
   .polo-logo img {
-    width: 200px; 
+    width: 100px; 
   }
   
   .card-container {
@@ -23,12 +24,7 @@
     width: 80%; 
     max-width: 500px; 
   }
-  
-  .botoes-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-  }
+
   
   .botoes-container button {
     padding: 10px 20px;
@@ -47,3 +43,21 @@
     background-color: #f44336;
     color: #fff;
   }
+  .logout-button {
+    background-color: #007BFF; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    width: 100px;
+}
+
+.logout-button:hover {
+  opacity: 0.7;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-radius: 100px;
+}

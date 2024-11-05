@@ -103,11 +103,12 @@ function Administrador() {
             <AppBar position="static" color="transparent" elevation={0}>
                 <Toolbar>
                     <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
-                        <img src="/images/images-removebg-preview.png" alt="Logo do Sistema de Agendamento" style={{ height: 50 }} />
+                        <img src="/images/images-removebg-preview.png" alt="Logo do Sistema de Agendamento" style={{ height: 80 }} />
                     </Box>
-                    <IconButton edge="end" color="inherit" aria-label="logout" onClick={handleLogout}>
-                      <LogoutIcon /> Sair
-                    </IconButton>
+                    <Button className="logout-button" sx={{ position: 'absolute', top: '20px', right: '20px'
+  }} onClick={handleLogout}>
+        <LogoutIcon /> Sair
+      </Button>
                 </Toolbar>
             </AppBar>
 

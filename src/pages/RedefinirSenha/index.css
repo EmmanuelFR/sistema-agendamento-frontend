@@ -1,22 +1,19 @@
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(180deg, #B0EACD, #FFFFFF);
-  }
+
+.redefinir-senha-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  overflow: hidden; 
+  box-sizing: border-box; 
+}
   
-  .redefinir-senha-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card-container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background-color: #fff;
-  }
+.card-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 0;
+}
   
   .login-logo img {
     width: 80px;
@@ -27,4 +24,4 @@
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 10px;
-  }  
+  }

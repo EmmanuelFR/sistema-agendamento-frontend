@@ -1,19 +1,5 @@
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(180deg, #B0EACD, #FFFFFF);
-  }  
 
-  .perfil-container {
-    min-height: 100vh; /* 100% da viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, #B0EACD, #FFFFFF); /* Gradiente aplicado ao container */
-  }  
-  
+
   .perfil-header {
     text-align: center;
   }
@@ -30,7 +16,7 @@
   .perfil-form {
     margin-top: 20px;
     width: 90%;
-    max-width: 400px;
+   
   }
   
   .perfil-input {

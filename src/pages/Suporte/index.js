@@ -4,6 +4,7 @@ import { Container, Typography, Button, Box, IconButton, Card, CardContent } fro
 import { useNavigate } from 'react-router-dom';
 import './index.css';
 
+
 const Suporte = () => {
 
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const handleLogout = () => {
   };
 
   return (
-    <Container maxWidth="sm" className="page-container">
+    <Container maxWidth="sm" className="container-base">
       <Box className="suporte-header" display="flex" justifyContent="space-between" alignItems="center">
         <IconButton className="menu-icon-suporte" onClick={handleVoltar}>
           <AiOutlineMenu size={28} />

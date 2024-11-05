@@ -1,10 +1,3 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, #B0EACD, #FFFFFF);
-  font-family: 'Roboto', sans-serif;
-}
 
 .login-container {
   display: flex;

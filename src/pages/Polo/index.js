@@ -59,11 +59,12 @@ function Polo() {
   };
 
   return (
-    <Container maxWidth="xs" className="polo-container" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+    <Container maxWidth="xs" className="polo-container" >
       <div className="botoes-container"> 
-      <IconButton edge="end" color="inherit" aria-label="logout" onClick={handleLogout}>
+      <Button className="logout-button" sx={{ position: 'absolute', top: '20px', right: '20px'
+  }} onClick={handleLogout}>
         <LogoutIcon /> Sair
-      </IconButton>
+      </Button>
       </div>
       <div className="polo-logo"> 
         <img src="/images/images-removebg-preview.png" alt="Logo" />

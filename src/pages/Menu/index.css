@@ -59,9 +59,7 @@
 }
 
 .menu-sair {
-  position: fixed; 
-  top: 20px; 
-  right: 20px; 
+  
   background-color: #007BFF; 
   color: white; 
   padding: 10px 15px; 
