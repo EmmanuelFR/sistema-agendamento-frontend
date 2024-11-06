@@ -60,15 +60,7 @@ function Polo() {
 
   return (
     <Container maxWidth="xs" className="polo-container" >
-      <div className="botoes-container"> 
-      <Button className="logout-button" sx={{ position: 'absolute', top: '20px', right: '20px'
-  }} onClick={handleLogout}>
-        <LogoutIcon /> Sair
-      </Button>
-      </div>
-      <div className="polo-logo"> 
-        <img src="/images/images-removebg-preview.png" alt="Logo" />
-      </div>
+      <br/>
       <Typography variant="h5" component="h2" sx={{ fontWeight: 'bold', marginBottom: 2 }}>
         Painel do Polo
       </Typography>

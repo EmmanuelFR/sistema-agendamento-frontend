@@ -34,9 +34,6 @@ function RedefinirSenha() {
       <div className="redefinir-senha-container">
         <Card className="card-container" style={{ maxWidth: 400, margin: '0 auto', padding: '20px 30px' }}>
           <CardContent>
-            <div className="login-logo" style={{ textAlign: 'center' }}>
-            <img src="/images/images-removebg-preview.png" alt="Logo" style={{ width: '80px', marginBottom: '20px' }} />
-            </div>
             <Typography variant="h5" align="center" gutterBottom>
               <FaLock style={{ marginRight: '10px' }} />
               Redefinir Senha

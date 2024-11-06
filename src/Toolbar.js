@@ -105,7 +105,7 @@ import { AppBar, Toolbar, Typography, IconButton, Avatar, Box } from '@mui/mater
 import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
-const ToolbarComponent = ({ showMenu, logoutPath }) => {
+const ToolbarComponent = ({ showMenu, showLogout, logoutPath }) => {
   const navigate = useNavigate();
 
   return (
@@ -133,18 +133,20 @@ const ToolbarComponent = ({ showMenu, logoutPath }) => {
           AgendaFácil UNIFAA
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Avatar sx={{ bgcolor: '#FFFFFF', color: '#036C6E' }}>U</Avatar>
+        <Avatar sx={{ border: '2px solid #FAFAFA' }} />
           <Typography variant="body2" sx={{ ml: 1, color: '#FFFFFF' }}>
-            Usuário Nome
+            João Silva
           </Typography>
         </Box>
-        <IconButton
-          aria-label="logout"
-          sx={{ color: '#FFFFFF', ml: 2 }}
-          onClick={() => navigate(logoutPath)}
-        >
-          <AiOutlineLogout size={28} />
-        </IconButton>
+        {showLogout && ( // Condicione a exibição do botão logout com showLogout
+          <IconButton
+            aria-label="logout"
+            sx={{ color: '#FFFFFF', ml: 2 }}
+            onClick={() => navigate(logoutPath)}
+          >
+            <AiOutlineLogout size={28} />
+          </IconButton>
+        )}
       </Toolbar>
     </AppBar>
   );

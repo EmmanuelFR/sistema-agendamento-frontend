@@ -26,18 +26,18 @@ function App() {
 
   return (
     <div className="containerBase">
-    <ToolbarComponent logoutPath={getLogoutPath()} />
+    {/* <ToolbarComponent logoutPath={getLogoutPath()} /> */}
       <Routes>
       <Route path="/" element={<Navigate to="/Login" />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/RedefinirSenha" element={<RedefinirSenha />} />
-        <Route path="/Menu" element={<Menu />} />
-        <Route path="/MeuPerfil" element={<MeuPerfil />} />
-        <Route path="/Agendamento" element={<Agendamento />} />
-        <Route path="/Suporte" element={<Suporte />} />
-        <Route path="/Logout" element={<Logout />} />
-        <Route path="/Polo" element={<Polo />} />
-        <Route path="/Administrador" element={<Administrador />} />
+        <Route path="/Login" element={<> <ToolbarComponent logoutPath={getLogoutPath()} /> <Login /> </>} />
+        <Route path="/RedefinirSenha" element={<> <ToolbarComponent logoutPath={getLogoutPath()} /> <RedefinirSenha /> </>} />
+        <Route path="/Menu" element={<> <ToolbarComponent showLogout logoutPath={getLogoutPath()} /> <Menu /> </>} />
+        <Route path="/MeuPerfil" element={<> <ToolbarComponent showMenu showLogout logoutPath={getLogoutPath()} /> <MeuPerfil /> </>} />
+        <Route path="/Agendamento" element={<> <ToolbarComponent showMenu showLogout logoutPath={getLogoutPath()} /> <Agendamento /> </>} />
+        <Route path="/Suporte" element={<> <ToolbarComponent showMenu showLogout logoutPath={getLogoutPath()} /> <Suporte /> </>} />
+        <Route path="/Logout" element={<> <ToolbarComponent logoutPath={getLogoutPath()} /> <Logout /> </>} />
+        <Route path="/Polo" element={<> <ToolbarComponent showLogout logoutPath={getLogoutPath()} /> <Polo /> </>} />
+        <Route path="/Administrador" element={<> <ToolbarComponent showLogout logoutPath={getLogoutPath()} /> <Administrador /> </>} />
       </Routes>
     </div>
   );

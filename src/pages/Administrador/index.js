@@ -101,15 +101,6 @@ function Administrador() {
     return (
         <Container>
             <AppBar position="static" color="transparent" elevation={0}>
-                <Toolbar>
-                    <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
-                        <img src="/images/images-removebg-preview.png" alt="Logo do Sistema de Agendamento" style={{ height: 80 }} />
-                    </Box>
-                    <Button className="logout-button" sx={{ position: 'absolute', top: '20px', right: '20px'
-  }} onClick={handleLogout}>
-        <LogoutIcon /> Sair
-      </Button>
-                </Toolbar>
             </AppBar>
 
             <Typography variant="h4" gutterBottom align="center" mt={3}>
@@ -118,10 +109,10 @@ function Administrador() {
 
             <Box display="flex" justifyContent="space-between" mt={3}>
                 <Button variant="contained" onClick={handleAdicionarModulo} sx={{ flexGrow: 0 }}>
-                    Adicionar Módulo
+                    Adicionar <br/> Módulo
                 </Button>
                 <Button variant="contained" onClick={handleAdicionarAluno}> 
-                    Adicionar Aluno
+                    Adicionar <br/> Aluno
                 </Button>
             </Box>
 

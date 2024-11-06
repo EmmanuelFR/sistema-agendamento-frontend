@@ -27,31 +27,22 @@ const handleLogout = () => {
 
   return (
     <Container maxWidth="sm" className="container-base">
-      <Box className="suporte-header" display="flex" justifyContent="space-between" alignItems="center">
-        <IconButton className="menu-icon-suporte" onClick={handleVoltar}>
-          <AiOutlineMenu size={28} />
-        </IconButton>
-        <img className="logo-suporte" src="/images/images-removebg-preview.png" alt="Logo" />
-        <IconButton className="logout-icon" onClick={handleLogout}>
-          <AiOutlineLogout size={28} />
-        </IconButton>
-      </Box>
 
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" align="center" gutterBottom>
         Suporte
       </Typography>
       <Typography variant="body1" align="center">
         Precisa de Ajuda? Escolha um canal e envie sua mensagem!
       </Typography>
 
-      <Box mt={4} className="support-options">
+      {/* <Box mt={4} className="support-options">
         <Card className="support-option">
           <CardContent>
             <Box display="flex" alignItems="center">
               <AiOutlineMail size={70} />
               <Box ml={2}>
-                <Typography variant="h6">Fale Conosco</Typography>
-                <Button variant="contained" color="primary" onClick={handleFaleConosco}>
+                <Typography variant="h6" align="center">Fale Conosco</Typography>
+                <Button variant="contained" color="primary" onClick={handleFaleConosco} align="center">
                   Enviar Mensagem
                 </Button>
               </Box>
@@ -64,15 +55,48 @@ const handleLogout = () => {
             <Box display="flex" alignItems="center">
               <AiOutlineWhatsApp size={70} />
               <Box ml={2}>
-                <Typography variant="h6">Whatsapp (08:00 às 17:00)</Typography>
-                <Button variant="contained" color="primary" onClick={handleWhatsapp}>
+                <Typography variant="h6" align="center">Whatsapp (08:00 às 17:00)</Typography>
+                <Button variant="contained" color="primary" onClick={handleWhatsapp} align="center">
                   Enviar Mensagem
                 </Button>
               </Box>
             </Box>
           </CardContent>
         </Card>
+      </Box> */}
+
+      <Box mt={4} className="support-options">
+        <Card className="support-option">
+          <CardContent>
+            <Box display="flex" flexDirection="column" alignItems="center"> 
+              <AiOutlineMail size={60} />
+              <Box> 
+                <Typography variant="h6" align="center">Fale Conosco</Typography>
+                <Button variant="contained" color="primary" onClick={handleFaleConosco} align="center">
+                  Enviar Mensagem
+                </Button>
+              </Box>
+            </Box>
+          </CardContent>
+        </Card>
+
+        <Card className="support-option">
+          <CardContent>
+            <Box display="flex" flexDirection="column" alignItems="center"> 
+              <AiOutlineWhatsApp size={60} />
+              <Box> 
+                <Typography variant="h6" align="center">WhatsApp (08:00 às 17:00)</Typography>
+                <Box display="flex" justifyContent="center">
+                  <Button variant="contained" color="primary" onClick={handleWhatsapp} align="center">
+                    Enviar Mensagem
+                  </Button>
+                </Box>
+              </Box>
+            </Box>
+          </CardContent>
+        </Card>
       </Box>
+
     </Container>
   );
 };

@@ -145,18 +145,9 @@ const Agendamento = () => {
 
     return (
         <Container>
-            <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-                <IconButton aria-label="menu" sx={{ color: '#036C6E' }} onClick={() => navigate('/Menu')}>
-                    <AiOutlineMenu size={28} />
-                </IconButton>
-                <img src="/images/images-removebg-preview.png" alt="Logo"   style={{ height: 100 }} />
-                <IconButton aria-label="logout" sx={{ color: '#036C6E' }} onClick={() => navigate('/Logout')}>
-                    <AiOutlineLogout size={28} />
-                </IconButton>
-            </Box>
 
             <Box>
-                <Typography variant="h4" gutterBottom>
+                <Typography variant="h4" gutterBottom align="center">
                     Agendamento de Avaliação
                 </Typography>
             </Box>
@@ -178,14 +169,16 @@ const Agendamento = () => {
                     </Select>
                 </FormControl>
              
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        label="Data"
-                        value={selectedDateTime}
-                        onChange={(newValue) => setSelectedDateTime(newValue)}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
-                </LocalizationProvider>
+                <FormControl fullWidth >
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker
+                            label="Data"
+                            value={selectedDateTime}
+                            onChange={(newValue) => setSelectedDateTime(newValue)}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
+                    </LocalizationProvider>
+                </FormControl>
 
                 <FormControl fullWidth >
                     <InputLabel id="horario-label">Horário</InputLabel>

@@ -16,10 +16,7 @@ const Logout = () => {
   };
 
   return (
-    <Container maxWidth="sm" className="logout-page-container">
-      <Box className="logout-header" display="flex" justifyContent="center" mb={3}>
-        <img className="logo-logout" src="/images/images-removebg-preview.png" alt="Logo" />
-      </Box>
+    <Container maxWidth="sm" className="containerBase">
 
       <Typography variant="h4" component="h2" align="center" gutterBottom>
         LOGOUT

@@ -31,17 +31,28 @@ const MeuPerfil = () => {
   };
 
   return (
-    <Container maxWidth="sm" className="perfil-container"> 
-      <Box className="perfil-header" display="flex" flexDirection="column" alignItems="center">
-        <img src="/images/images-removebg-preview.png" alt="Logo" className="perfil-logo" />
+    <Container maxWidth="sm" className="containerBase"> 
+      <Box 
+        className="perfil-header" 
+        display="flex" 
+        flexDirection="column" 
+        alignItems="center" 
+        sx={{ textAlign: 'center' }}
+      >
+      <br/>
         <Typography variant="h4" component="h1">
           Meu Perfil
         </Typography>
       </Box>
 
-      <Box className="perfil-form" mt={3}>
+      <Box 
+        className="perfil-form" 
+        mt={3} 
+        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
+
         <Avatar className="perfil-icon">
-          <FaUserCircle /> 
+          <FaUserCircle size={60} /> 
         </Avatar>
         <TextField 
           label="Nome Completo" 
