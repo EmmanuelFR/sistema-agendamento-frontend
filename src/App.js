@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/Login';
 import RedefinirSenha from './pages/RedefinirSenha';
 import Menu from './pages/Menu';
@@ -8,14 +8,25 @@ import Suporte from './pages/Suporte';
 import Logout from './pages/Logout';
 import Polo from './pages/Polo';
 import Administrador from './pages/Administrador';
+import ToolbarComponent from './Toolbar';
 import './App.css';
 
 function App() {
+
+  const location = useLocation();
+
+  const getLogoutPath = () => {
+    const currentPath = location.pathname;
+    if (currentPath === '/Administrador' || currentPath === '/Polo') {
+      return '/Login';
+    } else {
+      return '/Logout';
+    }
+  };
+
   return (
     <div className="containerBase">
-
-   
-    <Router>
+    <ToolbarComponent logoutPath={getLogoutPath()} />
       <Routes>
       <Route path="/" element={<Navigate to="/Login" />} />
         <Route path="/Login" element={<Login />} />
@@ -28,7 +39,6 @@ function App() {
         <Route path="/Polo" element={<Polo />} />
         <Route path="/Administrador" element={<Administrador />} />
       </Routes>
-    </Router>
     </div>
   );
 }

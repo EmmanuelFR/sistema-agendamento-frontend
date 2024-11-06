@@ -201,7 +201,8 @@ const Agendamento = () => {
                         <MenuItem value="10:00">10:00 - 11:00</MenuItem>
                     </Select>
                 </FormControl>
-</Box>
+                </Box>
+
                 <Box display="flex" justifyContent="space-between" mt={3}>
                     <Button variant="contained" color="primary" onClick={handleAgendar}>
                         Agendar
@@ -210,7 +211,7 @@ const Agendamento = () => {
           
 
             <TableContainer component={Paper} sx={{ mt: 3 }}>
-                <Table sx={{ maxWidth: 550 }} aria-label="tabela de agendamentos">
+                <Table sx={{ minWidth: 550 }} aria-label="tabela de agendamentos">
                     <TableHead>
                         <TableRow>
                             <TableCell>ID</TableCell>
