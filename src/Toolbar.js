@@ -105,7 +105,7 @@ import { AppBar, Toolbar, Typography, IconButton, Avatar, Box } from '@mui/mater
 import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
-const ToolbarComponent = ({ showMenu, showLogout, logoutPath }) => {
+const ToolbarComponent = ({ showMenu, showLogout, logoutPath, showUserName }) => {
   const navigate = useNavigate();
 
   return (
@@ -134,9 +134,11 @@ const ToolbarComponent = ({ showMenu, showLogout, logoutPath }) => {
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Avatar sx={{ border: '2px solid #FAFAFA' }} />
+        {showUserName && (
           <Typography variant="body2" sx={{ ml: 1, color: '#FFFFFF' }}>
             João Silva
           </Typography>
+        )}
         </Box>
         {showLogout && ( // Condicione a exibição do botão logout com showLogout
           <IconButton

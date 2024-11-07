@@ -31,13 +31,13 @@ function App() {
       <Route path="/" element={<Navigate to="/Login" />} />
         <Route path="/Login" element={<> <ToolbarComponent logoutPath={getLogoutPath()} /> <Login /> </>} />
         <Route path="/RedefinirSenha" element={<> <ToolbarComponent logoutPath={getLogoutPath()} /> <RedefinirSenha /> </>} />
-        <Route path="/Menu" element={<> <ToolbarComponent showLogout logoutPath={getLogoutPath()} /> <Menu /> </>} />
-        <Route path="/MeuPerfil" element={<> <ToolbarComponent showMenu showLogout logoutPath={getLogoutPath()} /> <MeuPerfil /> </>} />
-        <Route path="/Agendamento" element={<> <ToolbarComponent showMenu showLogout logoutPath={getLogoutPath()} /> <Agendamento /> </>} />
-        <Route path="/Suporte" element={<> <ToolbarComponent showMenu showLogout logoutPath={getLogoutPath()} /> <Suporte /> </>} />
-        <Route path="/Logout" element={<> <ToolbarComponent logoutPath={getLogoutPath()} /> <Logout /> </>} />
-        <Route path="/Polo" element={<> <ToolbarComponent showLogout logoutPath={getLogoutPath()} /> <Polo /> </>} />
-        <Route path="/Administrador" element={<> <ToolbarComponent showLogout logoutPath={getLogoutPath()} /> <Administrador /> </>} />
+        <Route path="/Menu" element={<> <ToolbarComponent showLogout showUserName logoutPath={getLogoutPath()} /> <Menu /> </>} />
+        <Route path="/MeuPerfil" element={<> <ToolbarComponent showMenu showLogout showUserName logoutPath={getLogoutPath()} /> <MeuPerfil /> </>} />
+        <Route path="/Agendamento" element={<> <ToolbarComponent showMenu showLogout showUserName logoutPath={getLogoutPath()} /> <Agendamento /> </>} />
+        <Route path="/Suporte" element={<> <ToolbarComponent showMenu showLogout showUserName logoutPath={getLogoutPath()} /> <Suporte /> </>} />
+        <Route path="/Logout" element={<> <ToolbarComponent showUserName logoutPath={getLogoutPath()} /> <Logout /> </>} />
+        <Route path="/Polo" element={<> <ToolbarComponent showLogout showUserName logoutPath={getLogoutPath()} /> <Polo /> </>} />
+        <Route path="/Administrador" element={<> <ToolbarComponent showLogout showUserName logoutPath={getLogoutPath()} /> <Administrador /> </>} />
       </Routes>
     </div>
   );
