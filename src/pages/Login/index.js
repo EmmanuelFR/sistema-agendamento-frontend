@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { TextField, Button, Container, Typography, Box, MenuItem } from '@mui/material';
+import { TextField, Button, Container, Typography, Box, MenuItem, Link } from '@mui/material';
 import './index.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ForgotPassword from '../../ForgotPassword';
 
 
 function Login() {
@@ -10,6 +11,16 @@ function Login() {
   const [senha, setSenha] = useState("");
   const [tipoUsuario, setTipoUsuario] = useState("aluno");
   const navigate = useNavigate();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +59,7 @@ function Login() {
 
   return (
     <Container maxWidth="xs" className="login-container" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <Typography variant="h4" component="h1" sx={{ fontWeight: 'bold', marginBottom: 2 }}>Login</Typography>
+      <Typography variant="h4" component="h1" sx={{ fontWeight: 'bold', marginBottom: 2}}>Login</Typography>
       <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%', backgroundColor: 'white', padding: 3, borderRadius: 2, boxShadow: 2 }}>
         <TextField
           label="E-mail / RA"
@@ -83,7 +94,7 @@ function Login() {
         </TextField>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
-          <a href="/RedefinirSenha" style={{ textDecoration: 'none', color: '#2C8ED6' }}>Esqueceu a senha? Clique aqui!</a>
+          <Link onClick={handleClickOpen} style={{ textDecoration: 'none', color: '#2C8ED6' }}>Esqueceu a senha? Clique aqui!</Link>
         </Box>
         <Button type="submit" sx={{ backgroundColor: '#1F6F5C', color: 'white', marginBottom: 2 }} variant="contained" fullWidth>
           Entrar
@@ -92,6 +103,9 @@ function Login() {
           JACAD UNIFAA
         </Button>
       </Box>
+
+      <ForgotPassword open={open} handleClose={handleClose} />
+
     </Container>
   );
 }

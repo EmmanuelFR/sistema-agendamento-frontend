@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, Typography, Button, TextField, Container } from '@mui/material';
 
 function RedefinirSenha() {
-  const [senhaAtual, setSenhaAtual] = useState("");
   const [novaSenha, setNovaSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
   const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:8080/api/redefinir-senha", {
-        senhaAtual,
         novaSenha,
+        confirmarSenha,
       });
       if (response.status === 200) {
         alert("Senha redefinida com sucesso!");
@@ -24,7 +24,7 @@ function RedefinirSenha() {
         alert("Erro ao redefinir senha: " + response.data);
       }
     } catch (error) {
-      alert("Erro ao redefinir senha: Verifique sua senha atual.");
+      alert("Erro: preencha os campos corretamente.");
       console.error("Erro ao redefinir a senha:", error);
     }
   };  
@@ -40,15 +40,6 @@ function RedefinirSenha() {
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
-                label="Senha Atual"
-                type="password"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={senhaAtual}
-                onChange={(e) => setSenhaAtual(e.target.value)}
-              />
-              <TextField
                 label="Nova Senha"
                 type="password"
                 variant="outlined"
@@ -56,6 +47,15 @@ function RedefinirSenha() {
                 margin="normal"
                 value={novaSenha}
                 onChange={(e) => setNovaSenha(e.target.value)}
+              />
+              <TextField
+                label="Confirmar Senha"
+                type="password"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={confirmarSenha}
+                onChange={(e) => setConfirmarSenha(e.target.value)}
               />
               <Button
                 type="submit"

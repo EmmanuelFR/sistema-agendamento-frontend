@@ -7,6 +7,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import 'dayjs/locale/en-gb';
 
 const Agendamento = () => {
     const [selectedHorario, setSelectedHorario] = useState('');
@@ -170,13 +171,13 @@ const Agendamento = () => {
                 </FormControl>
              
                 <FormControl fullWidth >
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DatePicker
-                            label="Data"
-                            value={selectedDateTime}
-                            onChange={(newValue) => setSelectedDateTime(newValue)}
-                            renderInput={(params) => <TextField {...params} />}
-                        />
+                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+                    <DatePicker
+                        label="Data"
+                        value={selectedDateTime}
+                        onChange={(newValue) => setSelectedDateTime(newValue)}
+                        renderInput={(params) => <TextField {...params} value={selectedDateTime ? dayjs(selectedDateTime).format('DD/MM/YYYY') : ''} />}
+                    />
                     </LocalizationProvider>
                 </FormControl>
 
