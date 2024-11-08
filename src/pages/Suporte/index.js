@@ -32,7 +32,7 @@ const handleLogout = () => {
         Suporte
       </Typography>
       <Typography variant="body1" align="center">
-        Precisa de Ajuda? Escolha um canal e envie sua mensagem!
+        Precisa de ajuda? Escolha um canal e envie sua mensagem!
       </Typography>
 
       {/* <Box mt={4} className="support-options">

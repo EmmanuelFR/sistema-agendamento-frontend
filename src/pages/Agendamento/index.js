@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Modal, Container, Typography, Button, Box, Select, MenuItem, InputLabel, FormControl, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Snackbar, Alert } from '@mui/material';
+import { Modal, Container, Typography, Button, Box, Select, MenuItem, InputLabel, FormControl, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Snackbar, Alert, Grid } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -144,12 +144,16 @@ const Agendamento = () => {
         setSnackbarOpen(false);
     };
 
+    function formatarTexto(texto) {
+        return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
+      }
+
     return (
         <Container>
 
             <Box>
                 <Typography variant="h4" gutterBottom align="center">
-                    Agendamento de Avaliação
+                    Agendamento de Avaliações
                 </Typography>
             </Box>
 
@@ -198,8 +202,10 @@ const Agendamento = () => {
                 </Box>
 
                 <Box display="flex" justifyContent="space-between" mt={3}>
-                    <Button variant="contained" color="primary" onClick={handleAgendar}>
-                        Agendar
+                    <Button variant="contained" color="primary" onClick={handleAgendar} sx={{ backgroundColor: '#155846', '&:hover': {opacity: 0.8}}}>
+                        <Typography textTransform="capitalize">
+                            Agendar
+                        </Typography>
                     </Button>
                 </Box>
           
@@ -231,24 +237,29 @@ const Agendamento = () => {
                                     )}
                                 </TableCell>
                                 <TableCell>
-                                    <Button
-                                        variant="outlined"
-                                        color="secondary"
-                                        className="reagendar-button green-button"
-                                        sx={{
-                                            borderColor: 'green',
-                                            color: 'green',
-                                            backgroundColor: '#d4f5e9',
-                                            '&:hover': {
-                                                backgroundColor: '#b2e0cc',
+                                    {agendamento.cancelado ? ( // Renderização condicional aqui
+                                        <></> // Renderiza nada se cancelado
+                                    ) : (
+                                        <Button
+                                            variant="outlined"
+                                            color="secondary"
+                                            className="reagendar-button green-button"
+                                            sx={{
                                                 borderColor: 'green',
-                                            },
-                                        }}
-                                        onClick={() => handleReagendar(agendamento)}
-                                        disabled={agendamento.cancelado}
-                                    >
-                                        Reagendar
-                                    </Button>
+                                                color: 'green',
+                                                backgroundColor: '#d4f5e9',
+                                                '&:hover': {
+                                                    backgroundColor: '#b2e0cc',
+                                                    borderColor: 'green',
+                                                },
+                                            }}
+                                            onClick={() => handleReagendar(agendamento)}
+                                        >
+                                            <Typography textTransform="capitalize">
+                                                Reagendar
+                                            </Typography>
+                                        </Button>
+                                    )}
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -270,43 +281,55 @@ const Agendamento = () => {
               p: 4,
             }}>
               <Typography variant="h6" gutterBottom>
-                Reagendar Avaliação
+                Reagendar avaliação
               </Typography>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  label="Nova Data"
-                  value={novaDataHora}
-                  onChange={(newValue) => setNovaDataHora(newValue)} 
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-              <div className="input-row">
-                  <FormControl fullWidth margin="normal">
-                    <InputLabel id="novo-horario-label">Novo Horário</InputLabel>
+
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                <FormControl fullWidth margin="normal">
+                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+                    <DatePicker
+                        label="Data"
+                        value={novaDataHora}
+                        onChange={(newValue) => setNovaDataHora(newValue)} 
+                        renderInput={(params) => <TextField {...params} fullWidth />} 
+                    />
+                    </LocalizationProvider>
+                    </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                    <FormControl fullWidth margin="normal">
+                    <InputLabel id="novo-horario-label">Horário</InputLabel>
                     <Select
-                      labelId="novo-horario-label"
-                      id="novo-horario"
-                      value={novaDataHora ? novaDataHora.format('HH:mm') : ''}
-                      label="Novo Horário"
-                      onChange={(e) => {
+                        label="Horário"
+                        labelId="novo-horario-label"
+                        id="novo-horario"
+                        value={novaDataHora ? novaDataHora.format('HH:mm') : ''}
+                        onChange={(e) => {
                         const [hora, minuto] = e.target.value.split(':');
                         setNovaDataHora(novaDataHora.set('hour', hora).set('minute', minuto));
-                      }}
+                        }}
                     >
-                      {horariosDisponiveis.map((horario) => (
+                        {horariosDisponiveis.map((horario) => (
                         <MenuItem key={horario} value={horario.substring(0, 5)}>
-                          {horario}
+                            {horario}
                         </MenuItem>
-                      ))}
+                        ))}
                     </Select>
-                  </FormControl>
-              </div>
+                    </FormControl>
+                </Grid>
+              </Grid>
+
               <Box display="flex" justifyContent="flex-end" mt={3}>
-                <Button variant="contained" color="primary" onClick={handleSalvarReagendamento}> 
-                  Salvar
+                <Button variant="contained" color="primary" onClick={handleSalvarReagendamento} sx={{ ml: 2, backgroundColor: '#155846', '&:hover' : {opacity: 0.8}}}> 
+                    <Typography textTransform="capitalize">
+                        Salvar
+                    </Typography>
                 </Button>
-                <Button variant="outlined" color="secondary" onClick={() => setModalReagendamentoAberto(false)} sx={{ ml: 2 }}>
-                  Cancelar
+                <Button variant="outlined" color="secondary" onClick={() => setModalReagendamentoAberto(false)} sx={{ ml: 2, borderColor: '#155846', color: '#155846', '&:hover' : {opacity: 0.8}}}>
+                    <Typography textTransform="capitalize">
+                        Cancelar
+                    </Typography>
                 </Button>
               </Box>
             </Box>

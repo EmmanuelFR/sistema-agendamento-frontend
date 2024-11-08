@@ -132,14 +132,16 @@ const ToolbarComponent = ({ showMenu, showLogout, logoutPath, showUserName }) =>
         >
           AgendaFácil UNIFAA
         </Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Avatar sx={{ border: '2px solid #FAFAFA' }} />
+        
         {showUserName && (
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Avatar sx={{ border: '2px solid #FAFAFA' }} />
           <Typography variant="body2" sx={{ ml: 1, color: '#FFFFFF' }}>
             João Silva
           </Typography>
+          </Box>
         )}
-        </Box>
+        
         {showLogout && ( // Condicione a exibição do botão logout com showLogout
           <IconButton
             aria-label="logout"
