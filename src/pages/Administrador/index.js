@@ -104,15 +104,25 @@ function Administrador() {
             </AppBar>
 
             <Typography variant="h4" gutterBottom align="center" mt={3}>
-                Painel do Administrador
+                Painel do administrador
             </Typography>
 
             <Box display="flex" justifyContent="space-between" mt={3}>
-                <Button variant="contained" onClick={handleAdicionarModulo} sx={{ flexGrow: 0 }}>
-                    Adicionar <br/> Módulo
+                <Button variant="contained" onClick={handleAdicionarModulo} sx={{ flexGrow: 0, backgroundColor: '#155846', '&:hover' : {opacity: 0.8}}}>
+                    <Typography textTransform="capitalize">
+                        Adicionar
+                    </Typography>
+                    <Typography textTransform="lowercase" ml={0.7}>
+                        módulo
+                    </Typography>
                 </Button>
-                <Button variant="contained" onClick={handleAdicionarAluno}> 
-                    Adicionar <br/> Aluno
+                <Button variant="contained" onClick={handleAdicionarAluno} sx={{ flexGrow: 0, backgroundColor: '#155846', '&:hover' : {opacity: 0.8}}}> 
+                <Typography textTransform="capitalize">
+                        Adicionar
+                    </Typography>
+                    <Typography textTransform="lowercase" ml={0.7}>
+                        aluno
+                    </Typography>
                 </Button>
             </Box>
 
@@ -121,7 +131,7 @@ function Administrador() {
                     <Typography variant="h6">Módulo {index + 1}</Typography>
                     
                     <TextField 
-                        label="Nome do Módulo" 
+                        label="Nome do módulo" 
                         fullWidth 
                         margin="dense" 
                         value={modulo.nome} 
@@ -142,7 +152,7 @@ function Administrador() {
                         onChange={(e) => handleMudancaModulo(index, 'disciplina', e.target.value)} 
                     />
                     <TextField 
-                        label="Período Início" 
+                        label="Início do período" 
                         fullWidth 
                         margin="dense" 
                         type="date"
@@ -151,7 +161,7 @@ function Administrador() {
                         onChange={(e) => handleMudancaModulo(index, 'periodoInicio', e.target.value)} 
                     />
                     <TextField 
-                        label="Período Fim" 
+                        label="Final do período" 
                         fullWidth 
                         margin="dense" 
                         type="date"
@@ -161,7 +171,7 @@ function Administrador() {
                     />
 
                     <FormControl fullWidth sx={{ mt: 2 }}>
-                        <InputLabel>Dias da Semana</InputLabel>
+                        <InputLabel>Dias da semana</InputLabel>
                         <Select
                             multiple
                             value={modulo.diasSemana}
@@ -190,23 +200,38 @@ function Administrador() {
                                 variant="outlined" 
                                 color="error" 
                                 onClick={() => handleRemoverHorario(index, i)} 
-                                sx={{ ml: 2 }}
+                                sx={{ ml: 2, borderColor: '#1B6E58', color: '#1B6E58', '&:hover' : {opacity: 0.8}}}
                             >
-                                Remover Horário
+                                <Typography textTransform="capitalize">
+                                    Remover
+                                </Typography>
+                                <Typography textTransform="lowercase" ml={0.7}>
+                                    horário
+                                </Typography>
                             </Button>
                         </Box>
                     ))}
-                    <Button variant="outlined" onClick={() => handleAdicionarHorario(index)} sx={{ mt: 2 }}>
-                        Adicionar Horário
+                    <Button variant="contained" onClick={() => handleAdicionarHorario(index)} sx={{ mt: 2, backgroundColor: '#155846', color: '#FFFFFF', '&:hover' : {opacity: 0.8}}}>
+                    <Typography textTransform="capitalize">
+                            Adicionar
+                        </Typography>
+                        <Typography textTransform="lowercase" ml={0.7}>
+                            horário
+                        </Typography>
                     </Button>
-                    <Button variant="outlined" color="error" onClick={() => handleRemoverModulo(index)} sx={{ mt: 2, ml: 2 }}>
-                        Remover Módulo
+                    <Button variant="outlined" color="error" onClick={() => handleRemoverModulo(index)} sx={{ mt: 2, ml: 2, borderColor: '#1B6E58', color: '#1B6E58', '&:hover' : {opacity: 0.8}}}>
+                    <Typography textTransform="capitalize">
+                        Remover
+                    </Typography>
+                    <Typography textTransform="lowercase" ml={0.7}>
+                        módulo
+                    </Typography>
                     </Button>
                 </Box>
             ))}
 
             <Dialog open={openAlunoModal} onClose={handleFecharAlunoModal}>
-                <DialogTitle>Adicionar Aluno</DialogTitle>
+                <DialogTitle>Adicionar aluno</DialogTitle>
                 <DialogContent>
                     <TextField label="RA" fullWidth margin="dense" name="ra" value={novoAluno.ra} onChange={handleInputChange} />
                     <TextField label="Nome" fullWidth margin="dense" name="nome" value={novoAluno.nome} onChange={handleInputChange} />
@@ -216,19 +241,24 @@ function Administrador() {
                     <TextField label="Contato" fullWidth margin="dense" name="contato" value={novoAluno.contato} onChange={handleInputChange} />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleFecharAlunoModal}>Cancelar</Button>
-                    <Button onClick={handleSalvarAluno}>Salvar</Button>
+                    <Button onClick={handleFecharAlunoModal} sx={{ ml: 2, color: '#1B6E58', '&:hover' : {opacity: 0.8}}}>Cancelar</Button>
+                    <Button onClick={handleSalvarAluno} sx={{ ml: 2, color: '#155846', '&:hover' : {opacity: 0.8}}}>Salvar</Button>
                 </DialogActions>
             </Dialog>
 
             <Box display="flex" justifyContent="center" sx={{ mt: 3 }}>
-                <Button variant="contained" color="secondary" onClick={handleSubmit} sx={{ backgroundColor: 'dodgerblue', border: '2px solid', borderColor: 'green'}}>
-                    Salvar Dados
+                <Button variant="contained" onClick={handleSubmit} sx={{ backgroundColor: '#155846', '&:hover' : {opacity: 0.8}}}>
+                <Typography textTransform="capitalize">
+                        Salvar
+                    </Typography>
+                    <Typography textTransform="lowercase" ml={0.7}>
+                        dados
+                    </Typography>
                 </Button>
             </Box>
 
             <Dialog open={openRelatorioModal} onClose={handleFecharRelatorioModal} fullWidth maxWidth="md">
-                <DialogTitle>Relatório de Dados Preenchidos</DialogTitle>
+                <DialogTitle>Relatório de dados preenchidos</DialogTitle>
                 <DialogContent dividers>
                     <Typography variant="h6">Módulos</Typography>
                     {modulos.map((modulo, index) => (
@@ -237,9 +267,9 @@ function Administrador() {
                             <Typography>Nome: {modulo.nome}</Typography>
                             <Typography>Curso: {modulo.curso}</Typography>
                             <Typography>Disciplina: {modulo.disciplina}</Typography>
-                            <Typography>Período Início: {modulo.periodoInicio}</Typography>
-                            <Typography>Período Fim: {modulo.periodoFim}</Typography>
-                            <Typography>Dias da Semana: {modulo.diasSemana.join(', ')}</Typography>
+                            <Typography>Início do período: {modulo.periodoInicio}</Typography>
+                            <Typography>Final do período: {modulo.periodoFim}</Typography>
+                            <Typography>Dias da semana: {modulo.diasSemana.join(', ')}</Typography>
                             <Typography>Horários: {modulo.horarios.join(', ')}</Typography>
                         </Box>
                     ))}
@@ -257,7 +287,7 @@ function Administrador() {
                     ))}
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleFecharRelatorioModal} color="primary">Fechar</Button>
+                    <Button onClick={handleFecharRelatorioModal} sx={{ color: '#1B6E58', '&:hover' : {opacity: 0.8}}}>Fechar</Button>
                 </DialogActions>
             </Dialog>
         </Container>

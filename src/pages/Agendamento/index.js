@@ -153,7 +153,7 @@ const Agendamento = () => {
 
             <Box>
                 <Typography variant="h4" gutterBottom align="center">
-                    Agendamento de Avaliações
+                    Agendamento de avaliações
                 </Typography>
             </Box>
 
@@ -216,7 +216,7 @@ const Agendamento = () => {
                         <TableRow>
                             <TableCell>ID</TableCell>
                             <TableCell>Disciplina</TableCell>
-                            <TableCell>Data e Hora</TableCell>
+                            <TableCell>Data e hora</TableCell>
                             <TableCell>Status</TableCell>
                             <TableCell>Ação</TableCell>
                         </TableRow>

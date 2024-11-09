@@ -22,7 +22,7 @@ function Polo() {
     { field: 'nome', headerName: 'Nome', width: 200 },
     { field: 'data', headerName: 'Data', width: 130 },
     { field: 'horario', headerName: 'Horário', width: 100 },
-    { field: 'chaveDaProva', headerName: 'Chave da Prova', width: 150 },
+    { field: 'chaveDaProva', headerName: 'Chave da prova', width: 150 },
   ];
 
   const agendamentos = [
@@ -57,18 +57,19 @@ function Polo() {
   const handleLogout = () => {
     navigate('/login');
   };
+  
 
   return (
     <Container maxWidth="xs" className="polo-container" >
       <br/>
       <Typography variant="h5" component="h2" sx={{ fontWeight: 'bold', marginBottom: 2 }}>
-        Painel do Polo
+        Painel do polo
       </Typography>
 
       <Box sx={{ width: '100%', backgroundColor: 'white', padding: 3, borderRadius: 2, boxShadow: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Visualizar Provas</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Visualizar provas</Typography>
             <div style={{ height: 200, width: '100%' }}>
               <DataGrid
                 rows={provas}
@@ -81,7 +82,7 @@ function Polo() {
           </Grid>
 
           <Grid item xs={12}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Visualizar Agendamentos</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Visualizar agendamentos</Typography>
             <div style={{ height: 200, width: '100%' }}>
               <DataGrid
                 rows={agendamentos}
@@ -94,7 +95,7 @@ function Polo() {
           </Grid>
 
           <Grid item xs={12}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Visualizar Dados dos Alunos</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Visualizar dados dos alunos</Typography>
             <div style={{ height: 200, width: '100%' }}>
               <DataGrid
                 rows={alunos}
@@ -109,9 +110,15 @@ function Polo() {
           <Grid item xs={12}>
             <Button 
               className="botao-relatorio" 
-              onClick={gerarRelatorioPDF} 
+              onClick={gerarRelatorioPDF}
+              sx={{ ml: 2, color: '#1B6E58', '&:hover' : {opacity: 0.8}}} 
             >
-              Gerar Relatório
+              <Typography textTransform="capitalize">
+                Gerar
+              </Typography>
+              <Typography textTransform="lowercase" ml={0.7}>
+                relatório
+              </Typography>
             </Button>
           </Grid>
         </Grid>

@@ -94,12 +94,14 @@ function Login() {
         </TextField>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
-          <Link onClick={handleClickOpen} style={{ textDecoration: 'none', color: '#2C8ED6' }}>Esqueceu a senha? Clique aqui!</Link>
+          <Link onClick={handleClickOpen} style={{ textDecoration: 'none', color: '#1B6E58' }}>Esqueceu a senha? Clique aqui!</Link>
         </Box>
-        <Button type="submit" sx={{ backgroundColor: '#1F6F5C', color: 'white', marginBottom: 2 }} variant="contained" fullWidth>
-          Entrar
+        <Button type="submit" sx={{ backgroundColor: '#155846', color: 'white', marginBottom: 2,'&:hover' : {opacity: 0.8}}} variant="contained" fullWidth>
+          <Typography textTransform="capitalize">
+            Entrar
+          </Typography>
         </Button>
-        <Button variant="contained" sx={{ backgroundColor: '#007BFF', color: 'white' }} fullWidth onClick={handleJacadClick}>
+        <Button variant="contained" sx={{ backgroundColor: '#1B6E58', color: 'white', '&:hover' : {opacity: 0.8}}} fullWidth onClick={handleJacadClick}>
           JACAD UNIFAA
         </Button>
       </Box>

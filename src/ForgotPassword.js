@@ -76,6 +76,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useNavigate } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
 
 function ForgotPassword({ open, handleClose }) {
   const navigate = useNavigate();
@@ -102,13 +103,12 @@ function ForgotPassword({ open, handleClose }) {
         sx: { backgroundImage: 'none' },
       }}
     >
-      <DialogTitle>Redefinir Senha</DialogTitle>
+      <DialogTitle>Redefinir senha</DialogTitle>
       <DialogContent
         sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}
       >
         <DialogContentText>
-          Digite seu E-mail e nós enviaremos um link para a recuperação da
-          senha.
+          Digite seu e-mail e nós enviaremos um link para a recuperação da senha.
         </DialogContentText>
         <OutlinedInput
           autoFocus
@@ -123,10 +123,17 @@ function ForgotPassword({ open, handleClose }) {
           onChange={(e) => setEmail(e.target.value)}
         />
       </DialogContent>
-      <DialogActions sx={{ pb: 3, px: 3 }}>
-        <Button onClick={handleClose}>Cancelar</Button>
-        <Button variant="contained" type="submit" onClick={handleContinue}>
-          Continuar
+      <DialogActions sx={{ pb: 3, px: 3}}>
+        <Button onClick={handleClose} sx={{ color: '#1B6E58', '&:hover' : {opacity: 0.8}}}>
+          <Typography textTransform="capitalize">
+            Cancelar
+          </Typography>
+        </Button>
+        
+        <Button variant="contained" type="submit" onClick={handleContinue} sx={{ backgroundColor: '#155846', '&:hover' : {opacity: 0.8}}}>
+          <Typography textTransform="capitalize">
+            Continuar
+          </Typography>
         </Button>
       </DialogActions>
     </Dialog>

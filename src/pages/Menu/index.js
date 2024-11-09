@@ -22,11 +22,11 @@ function Menu() {
           <ul className="menu-items">
             <li>
               <FaUser className="menu-icon-home" />
-              <Link to="/MeuPerfil" className="menu-link">Meu Perfil</Link>
+              <Link to="/MeuPerfil" className="menu-link">Meu perfil</Link>
             </li>
             <li>
               <FaCalendarAlt className="menu-icon-home" />
-              <Link to="/Agendamento" className="menu-link">Agendamento de Avaliações</Link>
+              <Link to="/Agendamento" className="menu-link">Agendamento de avaliações</Link>
             </li>
             <li>
               <FaHeadset className="menu-icon-home" />

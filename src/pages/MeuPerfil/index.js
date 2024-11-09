@@ -41,7 +41,7 @@ const MeuPerfil = () => {
       >
       <br/>
         <Typography variant="h4" component="h1">
-          Meu Perfil
+          Meu perfil
         </Typography>
       </Box>
 
@@ -55,7 +55,7 @@ const MeuPerfil = () => {
           <FaUserCircle size={60} /> 
         </Avatar>
         <TextField 
-          label="Nome Completo" 
+          label="Nome completo" 
           variant="outlined" 
           fullWidth 
           margin="normal"
@@ -105,7 +105,7 @@ const MeuPerfil = () => {
           }}
         />
         <TextField 
-          label="Período do Curso" 
+          label="Período do curso" 
           variant="outlined" 
           fullWidth 
           margin="normal"
@@ -134,12 +134,14 @@ const MeuPerfil = () => {
             readOnly: true,
           }}
         />
+        <br/>
         <Button 
           variant="contained" 
           color="primary" 
           className="voltar-btn"
           fullWidth
           onClick={handleReturn}
+          sx={{ backgroundColor: '#155846', '&:hover' : {opacity: 0.8}}}
         >
           Voltar
         </Button>

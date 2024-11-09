@@ -36,11 +36,11 @@ function RedefinirSenha() {
           <CardContent>
             <Typography variant="h5" align="center" gutterBottom>
               <FaLock style={{ marginRight: '10px' }} />
-              Redefinir Senha
+              Redefinir senha
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
-                label="Nova Senha"
+                label="Nova senha"
                 type="password"
                 variant="outlined"
                 fullWidth
@@ -49,7 +49,7 @@ function RedefinirSenha() {
                 onChange={(e) => setNovaSenha(e.target.value)}
               />
               <TextField
-                label="Confirmar Senha"
+                label="Confirmar senha"
                 type="password"
                 variant="outlined"
                 fullWidth
@@ -60,11 +60,15 @@ function RedefinirSenha() {
               <Button
                 type="submit"
                 variant="contained"
-                color="primary"
                 fullWidth
-                style={{ marginTop: '20px', backgroundColor: '#3498db' }}
+                sx={{ marginTop: '20px', backgroundColor: '#155846', '&:hover' : {opacity: 0.8}}}
               >
-                Alterar Senha
+                <Typography textTransform="capitalize">
+                  Alterar
+                </Typography>
+                <Typography textTransform="lowercase" ml={0.7}>
+                  senha
+                </Typography>
               </Button>
             </form>
           </CardContent>
