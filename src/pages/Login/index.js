@@ -3,7 +3,7 @@ import { TextField, Button, Container, Typography, Box, MenuItem, Link } from '@
 import './index.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import ForgotPassword from '../../ForgotPassword';
+import ForgotPassword from '../../components/ForgotPassword';
 
 
 function Login() {

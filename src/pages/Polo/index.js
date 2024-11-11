@@ -1,15 +1,11 @@
 import React from 'react';
-import { Container, Typography, Box, Grid, Button, IconButton } from '@mui/material';
+import { Container, Typography, Box, Grid, Button } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import './index.css';
 import gerarRelatorioPDF from '../../utils/gerarRelatorioPDF';
-import { useNavigate } from 'react-router-dom';
-import LogoutIcon from '@mui/icons-material/Logout';
 
 function Polo() {
 
-  const navigate = useNavigate();
-  
   const provas = [
     { id: 1, nome: 'Disciplina 1 - A2', data: '10/11/2024', horario: '08:00:00', chaveDaProva: '01' },
     { id: 2, nome: 'Disciplina 1 - A3', data: '15/11/2024', horario: '09:00:00', chaveDaProva: '02' },
@@ -53,11 +49,6 @@ function Polo() {
     { field: 'ra', headerName: 'RA', width: 130 },
     { field: 'curso', headerName: 'Curso', width: 150 },
   ];
-
-  const handleLogout = () => {
-    navigate('/login');
-  };
-  
 
   return (
     <Container maxWidth="xs" className="polo-container" >

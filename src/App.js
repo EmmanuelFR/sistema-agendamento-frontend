@@ -8,7 +8,7 @@ import Suporte from './pages/Suporte';
 import Logout from './pages/Logout';
 import Polo from './pages/Polo';
 import Administrador from './pages/Administrador';
-import ToolbarComponent from './Toolbar';
+import ToolbarComponent from './components/Toolbar';
 import './App.css';
 
 function App() {
@@ -26,7 +26,6 @@ function App() {
 
   return (
     <div className="containerBase">
-    {/* <ToolbarComponent logoutPath={getLogoutPath()} /> */}
       <Routes>
       <Route path="/" element={<Navigate to="/Login" />} />
         <Route path="/Login" element={<> <ToolbarComponent logoutPath={getLogoutPath()} /> <Login /> </>} />

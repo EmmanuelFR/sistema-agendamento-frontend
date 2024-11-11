@@ -1,15 +1,10 @@
 import React from 'react';
-import { FaUser, FaCalendarAlt, FaHeadset, FaSignOutAlt } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { FaUser, FaCalendarAlt, FaHeadset } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './index.css';
-import { Button, Card, Typography } from '@mui/material';
+import { Card, Typography } from '@mui/material';
 
 function Menu() {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    navigate('/logout');
-  };
 
   return (
     <div className="containerBase">

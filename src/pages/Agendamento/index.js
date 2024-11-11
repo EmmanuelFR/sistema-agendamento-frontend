@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Modal, Container, Typography, Button, Box, Select, MenuItem, InputLabel, FormControl, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Snackbar, Alert, Grid } from '@mui/material';
+import { Modal, Container, Typography, Button, Box, Select, MenuItem, InputLabel, FormControl, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Snackbar, Alert, Grid } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en-gb';
@@ -30,8 +28,6 @@ const Agendamento = () => {
         '09:00 às 10:00',
         '10:00 às 11:00'
     ];
-
-    const navigate = useNavigate();
 
     const buscarAgendamentos = async () => {
         try {
@@ -143,10 +139,6 @@ const Agendamento = () => {
         setSnackbarSuccessReagendamento(false);
         setSnackbarOpen(false);
     };
-
-    function formatarTexto(texto) {
-        return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
-      }
 
     return (
         <Container>

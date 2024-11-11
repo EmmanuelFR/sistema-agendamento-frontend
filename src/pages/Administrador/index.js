@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
-import { 
-    Container, TextField, Button, Box, Typography, AppBar, Toolbar, IconButton, 
-    Dialog, DialogTitle, DialogContent, DialogActions, Select, MenuItem, FormControl, InputLabel 
-} from '@mui/material';
-import LogoutIcon from '@mui/icons-material/Logout';
-import { useNavigate } from 'react-router-dom';
-
+import { Container, TextField, Button, Box, Typography, AppBar, Dialog, DialogTitle, DialogContent, DialogActions, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 function Administrador() {
-
-  const navigate = useNavigate();
 
     const [modulos, setModulos] = useState([]); 
     const [alunos, setAlunos] = useState([]);
@@ -88,10 +80,6 @@ function Administrador() {
 
     const handleSubmit = () => {
         setOpenRelatorioModal(true);
-    };
-
-    const handleLogout = () => {
-      navigate('/login');
     };
 
     const handleFecharRelatorioModal = () => {

@@ -1,13 +1,10 @@
 import React from 'react'; 
-import { AiOutlineMail, AiOutlineWhatsApp, AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai';
-import { Container, Typography, Button, Box, IconButton, Card, CardContent } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai';
+import { Container, Typography, Button, Box, Card, CardContent } from '@mui/material';
 import './index.css';
 
 
 const Suporte = () => {
-
-  const navigate = useNavigate();
 
   const handleFaleConosco = () => {
     window.location.href = "https://unifaa.edu.br/contato"; 
@@ -15,14 +12,6 @@ const Suporte = () => {
 
   const handleWhatsapp = () => {
     window.location.href = "https://api.whatsapp.com/send?phone=552424530770"; 
-  };
-
-  const handleVoltar = () => {
-    navigate('/Menu'); 
-  };
-
-const handleLogout = () => {
-    navigate('/Logout'); 
   };
 
   return (
