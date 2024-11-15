@@ -5,7 +5,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import axios from 'axios';
 import dayjs from 'dayjs';
-import 'dayjs/locale/en-gb';
+import 'dayjs/locale/pt-br';
+
+dayjs.locale('pt-br');
 
 const Agendamento = () => {
     const [selectedHorario, setSelectedHorario] = useState('');
@@ -55,6 +57,22 @@ const Agendamento = () => {
             alert('Preencha uma data e um horário.');
             return;
         }
+
+        if (selectedDateTime) {
+
+            console.log(selectedDateTime);
+
+            const diaDaSemana = selectedDateTime.day();
+            const dataAgendamento = selectedDateTime.toDate();
+
+            console.log(diaDaSemana);
+        
+            if (diaDaSemana === 0 || ehFeriadoNacional(dataAgendamento)) {
+                showSnackbar("Data indisponível para agendamento.", "error");
+                return;
+            }
+
+          }
 
         const dataHora = `${selectedDateTime.format('YYYY-MM-DD')}T${selectedHorario}:00`;
 
@@ -112,6 +130,17 @@ const Agendamento = () => {
                 return;
             }
 
+            if (novaDataHora) {
+                const diaDaSemana = novaDataHora.day();
+                const dataAgendamento = novaDataHora.toDate();
+        
+                if (diaDaSemana === 0 || ehFeriadoNacional(dataAgendamento)) {
+                  alert('Data indisponível para agendamento.');
+                  return;
+                }
+
+              }
+
             const novaDataHoraDayjs = dayjs(novaDataHora);
             const dataHoraFormatada = novaDataHoraDayjs.format('YYYY-MM-DDTHH:mm:ss');
 
@@ -140,6 +169,29 @@ const Agendamento = () => {
         setSnackbarOpen(false);
     };
 
+      function ehFeriadoNacional(data) {
+        const dia = data.getDate();
+        const mes = data.getMonth() + 1;
+      
+        // Listagem de alguns feriados nacionais fixos
+        const feriados = [
+          { dia: 1, mes: 1 },      // Confraternização Universal (Ano Novo)
+          { dia: 21, mes: 4 },     // Tiradentes
+          { dia: 1, mes: 5 },      // Dia do Trabalho
+          { dia: 7, mes: 9 },      // Independência do Brasil
+          { dia: 12, mes: 10 },    // Nossa Senhora Aparecida
+          { dia: 2, mes: 11 },     // Finados
+          { dia: 15, mes: 11 },    // Proclamação da República
+          { dia: 25, mes: 12 },    // Natal
+        ];
+      
+        if (feriados.some(feriado => feriado.dia === dia && feriado.mes === mes)) {
+          return true;
+        }
+      
+        return false;
+      }
+
     return (
         <Container>
 
@@ -167,7 +219,7 @@ const Agendamento = () => {
                 </FormControl>
              
                 <FormControl fullWidth >
-                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
                     <DatePicker
                         label="Data"
                         value={selectedDateTime}
@@ -229,8 +281,8 @@ const Agendamento = () => {
                                     )}
                                 </TableCell>
                                 <TableCell>
-                                    {agendamento.cancelado ? ( // Renderização condicional aqui
-                                        <></> // Renderiza nada se cancelado
+                                    {agendamento.cancelado ? (
+                                        <></>
                                     ) : (
                                         <Button
                                             variant="outlined"
@@ -279,7 +331,7 @@ const Agendamento = () => {
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                 <FormControl fullWidth margin="normal">
-                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
                     <DatePicker
                         label="Data"
                         value={novaDataHora}
